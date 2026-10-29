@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deploy service v2</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav><a href="../index.html">Home</a></nav></header>
+<main>
+<h1>Deploy service v2</h1>
+<dl>
+<dt>Period</dt><dd>2026-10 – present</dd>
+<dt>Kind</dt><dd>professional</dd>
+<dt>Status</dt><dd>active</dd>
+<dt>Tech</dt><dd>C#, .NET, HAProxy</dd>
+<dt>Tags</dt><dd>deployment, operations, internal tools</dd>
+<dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
+</dl>
+<h2>Summary</h2>
+<p>A replacement for the internal deploy service, which I am building from scratch. The old service could only redeploy; the new one gives a modern interface to deploy, uninstall, pause, restart and publish the applications on the production servers, so nobody has to log in over remote desktop for those jobs.</p>
+<h2>What I did</h2>
+<ul>
+<li>Specified the new service: a spec refined question by question and hardened over four review rounds, an architecture decision for one peer service per server, and 17 approved slices.</li>
+<li>Built the new service behind the login on both web servers, chose the overview layout from a prototype, and built the overview of one server's applications.</li>
+</ul>
+<h2>Outcomes</h2>
+<ul>
+<li>Still under development; it will soon replace the old deploy service for internal use.</li>
+</ul>
+</main>
+</body>
+</html>

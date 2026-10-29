@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer web admin</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav><a href="../index.html">Home</a></nav></header>
+<main>
+<h1>Customer web admin</h1>
+<dl>
+<dt>Period</dt><dd>2025-04 – present</dd>
+<dt>Kind</dt><dd>professional</dd>
+<dt>Status</dt><dd>active</dd>
+<dt>Tech</dt><dd>C#, .NET, ASP.NET, JavaScript, SCSS, NPOI</dd>
+<dt>Tags</dt><dd>backend, admin tools, GDPR</dd>
+<dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
+</dl>
+<h2>Summary</h2>
+<p>The web admin where customer accounts, retailer and salesperson lists, consents and mail settings for the configurator are managed. Customers and SparkVision staff both use it, so those changes no longer need a developer or a deploy.</p>
+<h2>What I did</h2>
+<ul>
+<li>Upgraded the admin to .NET 9 and rewrote the obsolete code.</li>
+<li>Planned the Send in Shop epic across four repositories and built the salesperson protocol model, the Excel importer and the admin UI.</li>
+<li>Gave each summary exit its own consent section and summary-copy switch.</li>
+<li>Fixed a publish that wiped a setting on every customer, list uploads that failed when two saves overlapped, and assortments that lost their wall and floor placement.</li>
+<li>Removed unused product pages and normalised the repository's line endings.</li>
+<li>Added an agent guide, a glossary and a wrong-assumption log, and led an epic to keep them in every product repository.</li>
+<li>Leading, alone, the migration that moves customer configuration out of the backends into the web admin: opened the epic with decision tickets on ownership, scopes, languages and a security baseline.</li>
+</ul>
+<h2>Outcomes</h2>
+<ul>
+<li>Holds, by my estimate, hundreds of customer accounts; one application can have several.</li>
+</ul>
+</main>
+</body>
+</html>

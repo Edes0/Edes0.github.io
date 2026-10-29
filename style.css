@@ -1,0 +1,134 @@
+/* Slate: dark, sans-serif, teal accent; index list items as cards (owner's pick, cover-letter spec task 6). */
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 52rem;
+  padding: 1.5rem 1.25rem 4rem;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.55;
+  color: #d7dde4;
+  background: #14181d;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  padding: 0.5rem 0;
+  background: #14181d;
+  border-bottom: 1px solid #262d35;
+}
+
+header nav a {
+  color: #5fd3c3;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+h1 {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 2.2rem;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+h2 {
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #5fd3c3;
+}
+
+h3 {
+  color: #ffffff;
+}
+
+a {
+  color: #5fd3c3;
+}
+
+section > ul {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+section > ul > li {
+  padding: 0.7rem 0.9rem;
+  color: #9aa6b2;
+  background: #1c2229;
+  border: 1px solid #262d35;
+  border-radius: 8px;
+}
+
+section > ul > li a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+main > ul {
+  padding-left: 1.1rem;
+}
+
+main > ul > li {
+  margin: 0.4rem 0;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.3rem 1.2rem;
+  padding: 0.9rem 1rem;
+  background: #1c2229;
+  border-radius: 8px;
+}
+
+dt {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7e8a96;
+}
+
+dd {
+  margin: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+th, td {
+  padding: 0.45rem 0.75rem 0.45rem 0;
+  text-align: left;
+  border-bottom: 1px solid #262d35;
+}
+
+th {
+  font-weight: 500;
+  color: #7e8a96;
+}
+
+footer {
+  margin-top: 3rem;
+}
+
+footer ul {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+footer li a {
+  padding: 0.3rem 0.9rem;
+  text-decoration: none;
+  border: 1px solid #5fd3c3;
+  border-radius: 999px;
+}

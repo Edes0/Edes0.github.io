@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Room-photo surface segmentation service</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav><a href="../index.html">Home</a></nav></header>
+<main>
+<h1>Room-photo surface segmentation service</h1>
+<dl>
+<dt>Period</dt><dd>2026-06 – present</dd>
+<dt>Kind</dt><dd>professional</dd>
+<dt>Status</dt><dd>active</dd>
+<dt>Tech</dt><dd>Python, PowerShell</dd>
+<dt>Tags</dt><dd>computer vision, image processing, GPU</dd>
+<dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
+</dl>
+<h2>Summary</h2>
+<p>The Python service that segments a shopper's room photo into surfaces for the configurator's Bring Your Own Room feature and exports the shading the renderer needs, so shoppers can see products in their own room rather than a stock one. I added the asset exporter, per-pass timing and training-data retention to the existing service.</p>
+<h2>What I did</h2>
+<ul>
+<li>Tested whether the configurator's renderer could draw a dynamically detected surface, and built an asset exporter from the photo's shading with a versioned contract for the backend.</li>
+<li>Added per-step timing that shows the CPU time, the device used and the component each step belongs to, so the slow parts of a 40-second job are visible before speeding them up.</li>
+<li>Made the service keep every job as training data before purging it, and serve each job's training files to the backend's archive.</li>
+</ul>
+<h2>Outcomes</h2>
+<ul>
+<li>Not launched yet.</li>
+</ul>
+</main>
+</body>
+</html>

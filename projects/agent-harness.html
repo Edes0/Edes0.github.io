@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code agent harness</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav><a href="../index.html">Home</a></nav></header>
+<main>
+<h1>Claude Code agent harness</h1>
+<dl>
+<dt>Period</dt><dd>2026-05 – present</dd>
+<dt>Kind</dt><dd>professional</dd>
+<dt>Status</dt><dd>active</dd>
+<dt>Tech</dt><dd>Claude Code, Python, PowerShell, JavaScript, Git</dd>
+<dt>Tags</dt><dd>AI agents, developer tooling, spec-driven development, code review</dd>
+<dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
+</dl>
+<h2>Summary</h2>
+<p>A versioned Claude Code configuration: skills, hooks, rules, specs and workflow engines that take a feature from an idea to a reviewed, merged pull request, with guards that keep autonomous agents inside agreed limits. I built it and use it daily at work, and for my own projects.</p>
+<h2>What I did</h2>
+<ul>
+<li>Started the harness as a versioned set of skills, settings and a statusline, with a morning automation that scouts for upgrades, so the setup is reproducible across machines and keeps up with Claude Code's changes.</li>
+<li>Built a spec-driven feature sequence — idea, spec, grilling, plan, test-first implementation, landing — with one git worktree per feature and a hand-off to the primary checkout for manual testing.</li>
+<li>Built autonomous release engines that drive a queue of specs or tracker slices to open pull requests, with an independent looping review, a budget check before each item and a recorded review.</li>
+<li>Built a severity-aware critic panel for plans, specs and diffs, and a test gym that measures whether it finds seeded defects.</li>
+<li>Wrote a guard hook and a permission charter that decide, row by row, which agent actions run, ask or are denied.</li>
+<li>Ported the harness scripts from PowerShell to Python.</li>
+<li>Built evaluation tooling: a regression suite for skills, harness and model comparisons, and blind judge verdicts.</li>
+<li>Added work-environment skills: cutting a product release, reading production logs from Grafana, and fetching Jenkins build output.</li>
+</ul>
+<h2>Outcomes</h2>
+<ul>
+<li>The team workspace is built on it and is used by six people in three departments.</li>
+</ul>
+</main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Server application watchdog</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav><a href="../index.html">Home</a></nav></header>
+<main>
+<h1>Server application watchdog</h1>
+<dl>
+<dt>Period</dt><dd>2025-05 – present</dd>
+<dt>Kind</dt><dd>professional</dd>
+<dt>Status</dt><dd>active</dd>
+<dt>Tech</dt><dd>Batch, Python, Windows Server</dd>
+<dt>Tags</dt><dd>operations, monitoring</dd>
+<dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
+</dl>
+<h2>Summary</h2>
+<p>The watchdog that keeps the customer applications running on the production web servers: it restarts an application that fails, recycles them all nightly, and promotes a staged release to live overnight.</p>
+<h2>What I did</h2>
+<ul>
+<li>Wrote the scripts that automate the watchdog, and kept the list of watched customer applications current as they were added and retired.</li>
+<li>Made the watchdog honour the new deploy service's markers and report its state, so a deploy and a restart do not collide.</li>
+<li>Wrote agent notes on adding a watched application, and recorded that the Grafana dashboards count its log lines.</li>
+</ul>
+<h2>Outcomes</h2>
+<ul>
+<li>Supervises about 80 applications on each of the two production web servers and recycles them nightly, roughly 57,000 restarts a year.</li>
+<li>Restarts an application that fails its health check three times in a row.</li>
+</ul>
+</main>
+</body>
+</html>

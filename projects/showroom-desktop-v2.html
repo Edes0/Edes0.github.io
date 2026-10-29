@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spark Digital Showroom desktop v2: WPF rewrite</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav><a href="../index.html">Home</a></nav></header>
+<main>
+<h1>Spark Digital Showroom desktop v2: WPF rewrite</h1>
+<dl>
+<dt>Period</dt><dd>2026-05 – present</dd>
+<dt>Kind</dt><dd>professional</dd>
+<dt>Status</dt><dd>active</dd>
+<dt>Tech</dt><dd>C#, .NET, WPF, WebView2, Serilog, Inno Setup, Jenkins</dd>
+<dt>Tags</dt><dd>desktop, Windows, kiosk, auto-update, code signing</dd>
+<dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
+</dl>
+<h2>Summary</h2>
+<p>A rewrite of the Windows desktop app. The first version, built in .NET MAUI, proved restrictive; v2 is a more deliberate design: a WPF shell that wraps the deployed web configurator, with kiosk behaviour, a new installer and a signed release flow through the company's update hub. I built it from scratch.</p>
+<h2>What I did</h2>
+<ul>
+<li>Planned the rewrite as an epic of numbered stories and built the WPF shell with WebView2, the core settings layer and its setup file parser, and the kiosk exit gesture.</li>
+<li>Prototyped online licensing: a license service bootstrap and an in-app license client.</li>
+<li>Added local file logging, trimmed the customer log and logged a host inventory at startup.</li>
+<li>Made the kiosk work with the phone remote control: idle-timer resets, an apply-to surface selector and smoother product scans.</li>
+<li>Mapped the update hub and surveyed Windows updaters, then decided the install layout, per-customer targeting and the release flow before building it.</li>
+<li>Built the release path: one per-user installer built by Jenkins, a re-runnable release job, signed releases, and a checksum check on the hub.</li>
+<li>Moved the app to .NET 10 before .NET 8 support ended.</li>
+<li>Explained every customer setting in the example setup file and removed the unused ones.</li>
+</ul>
+<h2>Outcomes</h2>
+<ul>
+<li>As of October 2026, about to be released to 50 customers, running on hundreds of screens around the world.</li>
+</ul>
+</main>
+</body>
+</html>

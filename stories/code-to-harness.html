@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From hand-written code to agentic harness work</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav><a href="../index.html">Home</a></nav></header>
+<main>
+<h1>From hand-written code to agentic harness work</h1>
+<p>For my first two years at SparkVision I wrote the code by hand: features in the configurator backend landed as runs of small commits and work-in-progress snapshots, merged through pull requests.</p>
+<p>My first attempt to give coding agents context, a set of markdown files for the backend in October 2025, was declined.</p>
+<p>In April 2026 an agent guide landed in the backend repository, and in May I ran a workshop for the team on Claude Code skills, slash commands, hooks and specs.</p>
+<p>This time it stuck, because we introduced it as a company alignment with AI.</p>
+<p>At the end of May I started a versioned harness of my own, and in June I wired the company's repositories into it.</p>
+<p>Over the summer the work changed shape. The Bring Your Own Room epic was planned as spikes and slices before any code, and its commits carried specs, glossary entries and recorded gotchas next to the code.</p>
+<p>In September I built a shared team workspace so colleagues without my harness could use the same skills, guardrails and deploy flow.</p>
+<p>By October a feature arrived as an epic cut into tickets, each driven to a pull request by the harness and reviewed before merge; the tile-rotation and grout-thickness epics went that way.</p>
+<p>The harness became a project in its own right, with a guard hook, a permission charter and an evaluation suite that checks it still works after a change.</p>
+<p>Some of its rules came from things that went wrong. A loop with no cap ran 12 rounds of finding "new" improvements until the session ran out of tokens, so every agent loop now has a hard round cap and stops when nothing serious is left or a round makes no progress. A debugging session proposed eight causes for a blank page by reading code, all wrong, until a twenty-line error boundary found the real one, so a visible symptom now gets measured, not reasoned about.</p>
+<h2>Projects</h2>
+<ul>
+<li><a href="../projects/showroom-backend.html">Spark Digital Showroom: rendering and API backend</a></li>
+<li><a href="../projects/agent-harness.html">Claude Code agent harness</a></li>
+<li><a href="../projects/team-workspace.html">Team workspace for agent-assisted development</a></li>
+</ul>
+</main>
+</body>
+</html>

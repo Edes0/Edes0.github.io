@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spark Digital Showroom: desktop app and updater</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav><a href="../index.html">Home</a></nav></header>
+<main>
+<h1>Spark Digital Showroom: desktop app and updater</h1>
+<dl>
+<dt>Period</dt><dd>2024-02 – 2024-12</dd>
+<dt>Kind</dt><dd>professional</dd>
+<dt>Status</dt><dd>shipped</dd>
+<dt>Tech</dt><dd>C#, .NET MAUI, Jenkins, MSIX</dd>
+<dt>Tags</dt><dd>desktop, Windows, auto-update</dd>
+<dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
+</dl>
+<h2>Summary</h2>
+<p>The Windows app that runs the configurator on a desktop or as a standalone install, and the updater that keeps it current, so in-store screens and standalone installs could run the configurator without a browser. It shipped to a few customers and is no longer in use.</p>
+<h2>What I did</h2>
+<ul>
+<li>Moved the desktop app to .NET 8 and onto a Jenkins build with publish scripts.</li>
+<li>Made the standalone settings work per install type, moved credentials out of the app settings, and fixed a window that did not maximise while downloading.</li>
+<li>Updated the updater: an SDK-style project, an install-later option, resumable downloads, and a shorter update check interval.</li>
+</ul>
+<h2>Outcomes</h2>
+<ul>
+<li>No longer in use; the v2 rewrite takes over its job.</li>
+</ul>
+</main>
+</body>
+</html>

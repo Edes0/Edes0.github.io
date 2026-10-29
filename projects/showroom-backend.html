@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spark Digital Showroom: rendering and API backend</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav><a href="../index.html">Home</a></nav></header>
+<main>
+<h1>Spark Digital Showroom: rendering and API backend</h1>
+<dl>
+<dt>Period</dt><dd>2023-08 – present</dd>
+<dt>Kind</dt><dd>professional</dd>
+<dt>Status</dt><dd>active</dd>
+<dt>Tech</dt><dd>C#, .NET, ASP.NET, MSTest, Redis, Jenkins, NuGet</dd>
+<dt>Tags</dt><dd>backend, image rendering, configurator, e-commerce</dd>
+<dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
+</dl>
+<h2>Summary</h2>
+<p>The .NET backend of Spark Digital Showroom, SparkVision's room configurator. Tile, bathroom and floor retailers and manufacturers use it to show shoppers their products in a room and hand them something a shop can act on. It serves the product tree, renders configured rooms with tiles, wood floors and furniture, and produces the summary, PDF, mail and order a shopper leaves with. I worked on it from my first month to now.</p>
+<h2>What I did</h2>
+<ul>
+<li>Extended the tile and wood-floor rendering: random and column-driven wood patterns, hexagon and triangle tiles, and a new rectangle render that replaced the old one in every showroom.</li>
+<li>Reworked the summary PDF template and kept the classic configurator working with it; later made the summary PDF on-demand and content-addressed, and fixed a PDF that rendered no text.</li>
+<li>Built furniture-assortment features driven by the customers' Excel files: mixed assortments, disabling products per language and per market, retailer ids per language, and non-selections for every layout.</li>
+<li>Added market-specific price files, price files fetched from the assortment admin, and external prices resolved by Display ID at request time.</li>
+<li>Fixed an async deadlock by separating the token-refresh lock, and cut startup time for a large customer.</li>
+<li>Built a mobile remote control for an in-store display, with QR-code pairing, product scanning and an inactivity timeout.</li>
+<li>Planned the Bring Your Own Room epic — a shopper uploads a room photo, the surfaces are identified, and products are applied to them — and cut it into spikes and slices.</li>
+<li>Built its backend: the photo-to-surface seam, the asynchronous segmentation job machinery, the photo render service, and later moved segmentation from the web host's GPU to the render node.</li>
+<li>Gave a photographed room the same summary, PDF, mail, order and saved-room behaviour as a catalog room.</li>
+<li>Kept every room-photo job as training data and archived unused jobs.</li>
+<li>Added tile rotation at any angle and grout thickness per tile surface, carried through links, saved rooms, the summary and the order.</li>
+<li>Stopped the settings log from writing secret values and patched vulnerable .NET cryptography packages.</li>
+<li>Brought agent guides and Claude Code workflows into the repository and ran a team workshop on them.</li>
+<li>Reviewed colleagues' pull requests across the period.</li>
+</ul>
+<h2>Outcomes</h2>
+<ul>
+<li>The backend serves about 95 production showroom apps, about 70 of them with outside traffic in a given month.</li>
+<li>Bring Your Own Room is not launched yet.</li>
+</ul>
+</main>
+</body>
+</html>

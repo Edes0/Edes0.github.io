@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autonomy</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav><a href="../index.html">Home</a></nav></header>
+<main>
+<h1>Autonomy</h1>
+<dl>
+<dt>Period</dt><dd>2025-11 – present</dd>
+<dt>Kind</dt><dd>independent</dd>
+<dt>Status</dt><dd>active</dd>
+<dt>Tech</dt><dd>C#, .NET 10, ASP.NET Core, EF Core, Docker, Godot, WebSockets, GitHub Actions</dd>
+<dt>Tags</dt><dd>game development, sandboxing, AI agents</dd>
+</dl>
+<h2>Summary</h2>
+<p>A programmable idle game I am building to launch: players write a bot, by hand or with an AI assistant, in one of about 24 languages, and it plays on its own around the clock in one shared online world.</p>
+<h2>What I did</h2>
+<ul>
+<li>Built the game server in C# on .NET 10, where every bot acts once a second, with pathfinding across rooms, fog of war, economy, building and combat.</li>
+<li>Built the sandbox that runs each player's bot in its own Docker container with CPU and time limits, with runtime images for about 24 languages.</li>
+<li>Built the Godot client, which only draws what the authoritative server sends.</li>
+<li>Run it spec-first: every change starts as a spec and plan and lands as a reviewed pull request with tests, and AI coding agents write much of the code under checks I set up while I make the design decisions and review every change.</li>
+</ul>
+</main>
+</body>
+</html>
