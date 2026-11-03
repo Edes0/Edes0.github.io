@@ -3,23 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spark Digital Showroom: rendering and API backend</title>
+<title>Spark Digital Showroom: rendering and API backend · Andreas Sjögren</title>
+<meta name="description" content="The .NET backend behind about 95 production room-configurator apps. I have worked on it since my first month, on rendering, pricing and orders.">
+<link rel="canonical" href="https://edes0.github.io/projects/showroom-backend.html">
+<meta property="og:url" content="https://edes0.github.io/projects/showroom-backend.html">
+<meta property="og:title" content="Spark Digital Showroom: rendering and API backend · Andreas Sjögren">
+<meta property="og:description" content="The .NET backend behind about 95 production room-configurator apps. I have worked on it since my first month, on rendering, pricing and orders.">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>
-<header><nav><a href="../index.html">Home</a></nav></header>
-<main>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../now.html">Now</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li></ul></nav></header>
+<main id="main">
 <h1>Spark Digital Showroom: rendering and API backend</h1>
 <dl>
 <dt>Period</dt><dd>2023-08 – present</dd>
 <dt>Kind</dt><dd>professional</dd>
-<dt>Status</dt><dd>active</dd>
+<dt>Status</dt><dd><span class="chip"><span aria-hidden="true">·</span> active</span></dd>
 <dt>Tech</dt><dd>C#, .NET, ASP.NET, MSTest, Redis, Jenkins, NuGet</dd>
 <dt>Tags</dt><dd>backend, image rendering, configurator, e-commerce</dd>
 <dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
 </dl>
+<p>The .NET backend behind about 95 production room-configurator apps. I have worked on it since my first month, on rendering, pricing and orders.</p>
 <h2>Summary</h2>
 <p>The .NET backend of Spark Digital Showroom, SparkVision's room configurator. Tile, bathroom and floor retailers and manufacturers use it to show shoppers their products in a room and hand them something a shop can act on. It serves the product tree, renders configured rooms with tiles, wood floors and furniture, and produces the summary, PDF, mail and order a shopper leaves with. I worked on it from my first month to now.</p>
+<p>AI-assisted since April 2026: from then on, much of my work here was written with Claude Code. I made the design decisions and reviewed the changes. The work before that I wrote by hand.</p>
 <h2>What I did</h2>
 <ul>
 <li>Extended the tile and wood-floor rendering: random and column-driven wood patterns, hexagon and triangle tiles, and a new rectangle render that replaced the old one in every showroom.</li>
@@ -29,7 +39,7 @@
 <li>Fixed an async deadlock by separating the token-refresh lock, and cut startup time for a large customer.</li>
 <li>Built a mobile remote control for an in-store display, with QR-code pairing, product scanning and an inactivity timeout.</li>
 <li>Planned the Bring Your Own Room epic — a shopper uploads a room photo, the surfaces are identified, and products are applied to them — and cut it into spikes and slices.</li>
-<li>Built its backend: the photo-to-surface seam, the asynchronous segmentation job machinery, the photo render service, and later moved segmentation from the web host's GPU to the render node.</li>
+<li>Added its backend: the photo-to-surface seam, the asynchronous segmentation job machinery, the photo render service, and later moved segmentation from the web host's GPU to the render node.</li>
 <li>Gave a photographed room the same summary, PDF, mail, order and saved-room behaviour as a catalog room.</li>
 <li>Kept every room-photo job as training data and archived unused jobs.</li>
 <li>Added tile rotation at any angle and grout thickness per tile surface, carried through links, saved rooms, the summary and the order.</li>
@@ -41,6 +51,34 @@
 <ul>
 <li>The backend serves about 95 production showroom apps, about 70 of them with outside traffic in a given month.</li>
 <li>Bring Your Own Room is not launched yet.</li>
+</ul>
+<h2>Decisions</h2>
+<section class="decision">
+<h3>An on-demand, content-addressed summary PDF</h3>
+<p>A summary PDF is now generated when asked for and cached by its configuration and render parameters, so a link already sent keeps resolving. For photographed rooms I rejected keying on the session, which would serve a stale PDF after a tile change.</p>
+</section>
+<section class="decision">
+<h3>Prices resolved at request time</h3>
+<p>Looking prices up at load time by the bare retailer id could not match templated Display IDs, so those products had no price. A new provider resolves the price by the final Display ID when the request comes in, and the summary, PDF and mail inherit it.</p>
+</section>
+<section class="decision">
+<h3>Segmentation moved to the render node</h3>
+<p>Room-photo segmentation first moved to the render node as an opt-in mode. I deliberately kept its reachability out of the boot check, because an unreachable node would otherwise take a site down. Later the node became the only processor, and a retired mode now fails boot with a message that names the fix.</p>
+</section>
+<section class="decision">
+<h3>A photographed room behaves like a catalog room</h3>
+<p>Shops already handle orders in one shape, so orders from a photographed room keep it and nothing downstream changes. Restoring a saved room takes a snapshot, not an overlay, because treating a missing value as "skip" produced mixed rooms.</p>
+</section>
+<h2>Trade-offs</h2>
+<ul>
+<li>Renders from the node differ from the local pipeline, accepted over maintaining a second copy of the options.</li>
+<li>How long a photographed room and its mailed links stay reachable is left open: a link resolves only while its room does.</li>
+<li>Disabling products by Display ID stayed out of scope when prices moved to it, a known limitation.</li>
+</ul>
+<h2>What I'd change</h2>
+<ul>
+<li>Design clearing a surface per wall from the start, instead of a whole-image reset.</li>
+<li>Go to the render node sooner, instead of building a local segmentation mode that was later removed.</li>
 </ul>
 </main>
 </body>

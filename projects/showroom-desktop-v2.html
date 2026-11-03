@@ -3,23 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spark Digital Showroom desktop v2: WPF rewrite</title>
+<title>Spark Digital Showroom desktop v2: WPF rewrite · Andreas Sjögren</title>
+<meta name="description" content="A WPF rewrite of a Windows kiosk app, about to reach 50 customers and hundreds of screens. I built it from scratch.">
+<link rel="canonical" href="https://edes0.github.io/projects/showroom-desktop-v2.html">
+<meta property="og:url" content="https://edes0.github.io/projects/showroom-desktop-v2.html">
+<meta property="og:title" content="Spark Digital Showroom desktop v2: WPF rewrite · Andreas Sjögren">
+<meta property="og:description" content="A WPF rewrite of a Windows kiosk app, about to reach 50 customers and hundreds of screens. I built it from scratch.">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>
-<header><nav><a href="../index.html">Home</a></nav></header>
-<main>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../now.html">Now</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li></ul></nav></header>
+<main id="main">
 <h1>Spark Digital Showroom desktop v2: WPF rewrite</h1>
 <dl>
 <dt>Period</dt><dd>2026-05 – present</dd>
 <dt>Kind</dt><dd>professional</dd>
-<dt>Status</dt><dd>active</dd>
+<dt>Status</dt><dd><span class="chip"><span aria-hidden="true">·</span> active</span></dd>
 <dt>Tech</dt><dd>C#, .NET, WPF, WebView2, Serilog, Inno Setup, Jenkins</dd>
 <dt>Tags</dt><dd>desktop, Windows, kiosk, auto-update, code signing</dd>
 <dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
 </dl>
+<p>A WPF rewrite of a Windows kiosk app, about to reach 50 customers and hundreds of screens. I built it from scratch.</p>
 <h2>Summary</h2>
 <p>A rewrite of the Windows desktop app. The first version, built in .NET MAUI, proved restrictive; v2 is a more deliberate design: a WPF shell that wraps the deployed web configurator, with kiosk behaviour, a new installer and a signed release flow through the company's update hub. I built it from scratch.</p>
+<p>AI-assisted: written with Claude Code from the start. I made the design decisions and reviewed the changes.</p>
 <h2>What I did</h2>
 <ul>
 <li>Planned the rewrite as an epic of numbered stories and built the WPF shell with WebView2, the core settings layer and its setup file parser, and the kiosk exit gesture.</li>
@@ -34,6 +44,33 @@
 <h2>Outcomes</h2>
 <ul>
 <li>As of October 2026, about to be released to 50 customers, running on hundreds of screens around the world.</li>
+</ul>
+<h2>Decisions</h2>
+<section class="decision">
+<h3>A WPF shell around the deployed web apps</h3>
+<p>The first version, in .NET MAUI, felt restricting and had a start-up race in its web view. v2 is a WPF shell around WebView2 that wraps the web applications already deployed, so the desktop app adds kiosk behaviour and leaves the configurator to the web. The cost is that WebView2 draws over WPF, which broke the first exit button and cursor hiding.</p>
+</section>
+<section class="decision">
+<h3>Keep the existing update hub</h3>
+<p>I compared an own update client, three libraries and the company's existing updater, as it was and improved. A library looked like the production path early on, and I dropped that in October: the app ships through the existing hub.</p>
+</section>
+<section class="decision">
+<h3>One per-user installer, targeted by hub grants</h3>
+<p>Per-customer builds and a per-machine install gave way to one per-user installer, with the hub deciding who receives what. It needs no admin rights, a PC keeps its channel, and the test and public releases use the same build.</p>
+</section>
+<section class="decision">
+<h3>Sign by hand, verify in the job</h3>
+<p>The release job pauses for signing, then refuses a file that is not validly signed, timestamped and issued to the exact name. The checksum is taken after signing and the hub must serve the same value. Automatic selection once picked the wrong certificate, so the procedure now signs by name.</p>
+</section>
+<h2>Trade-offs</h2>
+<ul>
+<li>Online licensing stayed a prototype, postponed behind the release work.</li>
+<li>Release steps remain partly manual, with a hand copy to the hub and signing by hand, because nothing on the build host could write to the hub.</li>
+</ul>
+<h2>What I'd change</h2>
+<ul>
+<li>Test the kiosk gestures on an installed build from the start: the exit gesture was dead on one page of an installed release.</li>
+<li>Add a customer setting only when something needs it: I later removed six nobody used, where a bad value could stop the app.</li>
 </ul>
 </main>
 </body>

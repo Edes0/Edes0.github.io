@@ -1,5 +1,10 @@
 .nojekyll
+404.html
+about.html
+favicon.svg
 index.html
+now.html
+projects.html
 projects/agent-harness.html
 projects/ai-trader.html
 projects/autonomy.html
@@ -15,7 +20,12 @@ projects/showroom-desktop.html
 projects/showroom-room-picker.html
 projects/showroom-web.html
 projects/team-workspace.html
+robots.txt
 roles/frontedge-it.html
 roles/sparkvision.html
+sitemap.xml
 stories/code-to-harness.html
+stories/how-this-site-is-built.html
 style.css
+updates/2026-11-03-autonomy-devlog-001.html
+updates/2026-11-03-site-rebuilt.html

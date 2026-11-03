@@ -3,23 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Team workspace for agent-assisted development</title>
+<title>Team workspace for agent-assisted development · Andreas Sjögren</title>
+<meta name="description" content="A shared Claude Code workspace used by six people in three departments. I started it alone, on my own initiative, and built it.">
+<link rel="canonical" href="https://edes0.github.io/projects/team-workspace.html">
+<meta property="og:url" content="https://edes0.github.io/projects/team-workspace.html">
+<meta property="og:title" content="Team workspace for agent-assisted development · Andreas Sjögren">
+<meta property="og:description" content="A shared Claude Code workspace used by six people in three departments. I started it alone, on my own initiative, and built it.">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>
-<header><nav><a href="../index.html">Home</a></nav></header>
-<main>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../now.html">Now</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li></ul></nav></header>
+<main id="main">
 <h1>Team workspace for agent-assisted development</h1>
 <dl>
 <dt>Period</dt><dd>2026-09 – present</dd>
 <dt>Kind</dt><dd>professional</dd>
-<dt>Status</dt><dd>active</dd>
+<dt>Status</dt><dd><span class="chip"><span aria-hidden="true">·</span> active</span></dd>
 <dt>Tech</dt><dd>Claude Code, Python, PowerShell, SVN, Git, Grafana</dd>
 <dt>Tags</dt><dd>AI agents, developer tooling, deployment</dd>
 <dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
 </dl>
+<p>A shared Claude Code workspace used by six people in three departments. I started it alone, on my own initiative, and built it.</p>
 <h2>Summary</h2>
 <p>A shared workspace that gives colleagues without a personal agent harness the same repositories, skills, guardrails and deploy flow, so they can work with Claude Code on the company's products. I started it alone, on my own initiative, to make other parts of the company work more efficiently, with skills for their daily work that merge with mine.</p>
+<p>AI-assisted: written with Claude Code. I designed the workspace and its guardrails, and I reviewed the changes.</p>
 <h2>What I did</h2>
 <ul>
 <li>Built the wrapper: a manifest of repositories with lazy checkout, and one sparse SVN copy per repository, deepened on demand.</li>
@@ -32,6 +42,38 @@
 <h2>Outcomes</h2>
 <ul>
 <li>Used by six people in three departments: development, content and support.</li>
+</ul>
+<h2>Decisions</h2>
+<section class="decision">
+<h3>A manifest and lazy checkout</h3>
+<p>The wrapper tracks no product code. It holds a manifest of repositories and checks one out when it is needed, and checkout never resets, stashes, cleans or switches branches, so it cannot destroy a colleague's work.</p>
+</section>
+<section class="decision">
+<h3>One sparse SVN copy per repository</h3>
+<p>Each SVN repository gets one sparse copy, deepened on demand and never made shallower. Read commands go through one call site, and customer data needs explicit confirmation. This replaced full checkouts and a migration path, both now retired.</p>
+</section>
+<section class="decision">
+<h3>Separate from my own harness</h3>
+<p>Colleagues have no personal agent config, so the wrapper carries its own skills and writing guides, and its guard imports nothing from mine. Colleagues get something self-contained; the cost is a second guard to maintain.</p>
+</section>
+<section class="decision">
+<h3>Agents do not deploy to real servers</h3>
+<p>A deploy to a real server is denied, with a reason that tells the person to run it themselves. Customer-data fetches ask first and local deploys are not gated.</p>
+</section>
+<section class="decision">
+<h3>Read-only production data through a personal login</h3>
+<p>A token script was replaced the same day by a hosted connection that signs in as each person, so no shared token is issued or stored. Agents can read logs and metrics while diagnosing a problem.</p>
+</section>
+<h2>Trade-offs</h2>
+<ul>
+<li>The guard fails open, so its own failure never blocks anyone's work. The price showed when a colleague's network home drive kept the hook from starting and commands passed unchecked.</li>
+<li>Some blind spots and false positives in the guard are accepted and documented.</li>
+<li>Read-only production access rests on the sign-in grant, not on the person's role in the monitoring tool.</li>
+</ul>
+<h2>What I'd change</h2>
+<ul>
+<li>Run the first version of an integration against the live service before merging it: the token script had run no live query and was gone within hours.</li>
+<li>Test the guard hook on a colleague's machine early, not only on my own.</li>
 </ul>
 </main>
 </body>

@@ -3,23 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claude Code agent harness</title>
+<title>Claude Code agent harness · Andreas Sjögren</title>
+<meta name="description" content="A versioned Claude Code setup that takes a feature from idea to merged pull request: about 40 skills, over 500 commits. I built it and use it daily.">
+<link rel="canonical" href="https://edes0.github.io/projects/agent-harness.html">
+<meta property="og:url" content="https://edes0.github.io/projects/agent-harness.html">
+<meta property="og:title" content="Claude Code agent harness · Andreas Sjögren">
+<meta property="og:description" content="A versioned Claude Code setup that takes a feature from idea to merged pull request: about 40 skills, over 500 commits. I built it and use it daily.">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>
-<header><nav><a href="../index.html">Home</a></nav></header>
-<main>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../now.html">Now</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li></ul></nav></header>
+<main id="main">
 <h1>Claude Code agent harness</h1>
 <dl>
 <dt>Period</dt><dd>2026-05 – present</dd>
 <dt>Kind</dt><dd>professional</dd>
-<dt>Status</dt><dd>active</dd>
+<dt>Status</dt><dd><span class="chip"><span aria-hidden="true">·</span> active</span></dd>
 <dt>Tech</dt><dd>Claude Code, Python, PowerShell, JavaScript, Git</dd>
 <dt>Tags</dt><dd>AI agents, developer tooling, spec-driven development, code review</dd>
 <dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
 </dl>
+<p>A versioned Claude Code setup that takes a feature from idea to merged pull request: about 40 skills, over 500 commits. I built it and use it daily.</p>
 <h2>Summary</h2>
 <p>A versioned Claude Code configuration: skills, hooks, rules, specs and workflow engines that take a feature from an idea to a reviewed, merged pull request, with guards that keep autonomous agents inside agreed limits. I built it and use it daily at work, and for my own projects.</p>
+<p>AI-assisted: agents write much of this code too. I set the design, the rules and the limits, and I review the changes. My standard is that code I reviewed, tested and can explain is AI-assisted programming, not vibe coding.</p>
 <h2>What I did</h2>
 <ul>
 <li>Started the harness as a versioned set of skills, settings and a statusline, with a morning automation that scouts for upgrades, so the setup is reproducible across machines and keeps up with Claude Code's changes.</li>
@@ -34,6 +44,38 @@
 <h2>Outcomes</h2>
 <ul>
 <li>The team workspace is built on it and is used by six people in three departments.</li>
+</ul>
+<h2>Decisions</h2>
+<section class="decision">
+<h3>One central home for agent config</h3>
+<p>Per-repository overlays, hooks and settings had spread across repositories. I moved them into one repository with three tiers, so a product repository keeps only its guide and a routing marker. A lint now fails any repository that tracks orchestration of its own.</p>
+</section>
+<section class="decision">
+<h3>Every agent loop has three guards</h3>
+<p>An improvement-finder with no cap ran 12 rounds until the session ran out of tokens, and it never stopped finding "new" items. Every loop now has a hard round cap, stops when nothing serious is left, and stops when a round makes no progress. Stopping on novelty alone is banned, and a cap above the limit is rejected, not raised.</p>
+</section>
+<section class="decision">
+<h3>An inline review loop instead of an engine</h3>
+<p>I compared a deterministic engine with an inline loop on one artifact, once. The engine grew it from 44 to 329 lines, hit its cap and fixed one defect fewer; the inline loop reached 108 lines and converged in 3 rounds. It is thin evidence, but it was enough to delete the engine for this loop.</p>
+</section>
+<section class="decision">
+<h3>One charter for every permission decision</h3>
+<p>A single file decides, row by row, which agent actions run, ask or are denied, and each guard denial names its row. Recursive deletes are judged by where their targets resolve and fail closed. A test goes red when the guard and the charter drift apart.</p>
+</section>
+<section class="decision">
+<h3>Replay decides whether an optimisation stays</h3>
+<p>Cheaper review passes have to reproduce recorded results before they stay. Two did not: batched lenses matched scores much less often, and grouped finders re-found at most 2 of 7 findings against 4 to 5 for the old ones. Both were reverted.</p>
+</section>
+<h2>Trade-offs</h2>
+<ul>
+<li>The inline loop's guards are enforced by its specification, not by code: I gained judgment and gave up mechanical enforcement.</li>
+<li>The guard is best-effort text matching with listed gaps, and bypasses are closed as they are found. It is a backstop, not a sandbox.</li>
+<li>Rigor in the evaluations is postponed: the regression suite and its rigor pass are still specs, not finished work.</li>
+</ul>
+<h2>What I'd change</h2>
+<ul>
+<li>Cap every agent loop from the first one, rather than after one ran out the session.</li>
+<li>Replay an optimisation against recorded results before building it in, rather than reverting it afterwards.</li>
 </ul>
 </main>
 </body>

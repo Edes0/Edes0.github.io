@@ -3,28 +3,75 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Autonomy</title>
+<title>Autonomy · Andreas Sjögren</title>
+<meta name="description" content="A programmable idle game: players write bots that run around the clock in one shared world. Pre-alpha, over 200 specs, built solo.">
+<link rel="canonical" href="https://edes0.github.io/projects/autonomy.html">
+<meta property="og:url" content="https://edes0.github.io/projects/autonomy.html">
+<meta property="og:title" content="Autonomy · Andreas Sjögren">
+<meta property="og:description" content="A programmable idle game: players write bots that run around the clock in one shared world. Pre-alpha, over 200 specs, built solo.">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>
-<header><nav><a href="../index.html">Home</a></nav></header>
-<main>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../now.html">Now</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li></ul></nav></header>
+<main id="main">
 <h1>Autonomy</h1>
 <dl>
 <dt>Period</dt><dd>2025-11 – present</dd>
 <dt>Kind</dt><dd>independent</dd>
-<dt>Status</dt><dd>active</dd>
+<dt>Status</dt><dd><span class="chip"><span aria-hidden="true">·</span> active</span></dd>
 <dt>Tech</dt><dd>C#, .NET 10, ASP.NET Core, EF Core, Docker, Godot, WebSockets, GitHub Actions</dd>
 <dt>Tags</dt><dd>game development, sandboxing, AI agents</dd>
 </dl>
+<p>A programmable idle game: players write bots that run around the clock in one shared world. Pre-alpha, over 200 specs, built solo.</p>
 <h2>Summary</h2>
-<p>A programmable idle game I am building to launch: players write a bot, by hand or with an AI assistant, in one of about 24 languages, and it plays on its own around the clock in one shared online world.</p>
+<p>A game I am building to launch. A player writes a bot, by hand or with an AI assistant, and it plays on its own in one shared online world while they watch and tweak it. Its closest references are Screeps, for the persistent world, and Battlecode, for bot matches.</p>
+<p>AI-assisted: coding agents write much of the code under checks I set up. I make the design decisions and review every change.</p>
 <h2>What I did</h2>
 <ul>
 <li>Built the game server in C# on .NET 10, where every bot acts once a second, with pathfinding across rooms, fog of war, economy, building and combat.</li>
-<li>Built the sandbox that runs each player's bot in its own Docker container with CPU and time limits, with runtime images for about 24 languages.</li>
+<li>Built the sandbox that runs each player's bot in its own Docker container with CPU and time limits.</li>
 <li>Built the Godot client, which only draws what the authoritative server sends.</li>
-<li>Run it spec-first: every change starts as a spec and plan and lands as a reviewed pull request with tests, and AI coding agents write much of the code under checks I set up while I make the design decisions and review every change.</li>
+<li>Run it spec-first: feature work starts as a spec and plan and lands as a reviewed pull request with tests.</li>
+</ul>
+<h2>Outcomes</h2>
+<ul>
+<li>Pre-alpha, with no public world yet. The next goal is a closed demo for 10 to 30 invited players on one hosted world.</li>
+</ul>
+<h2>Decisions</h2>
+<section class="decision">
+<h3>Bots run inside the tick</h3>
+<p>An earlier asynchronous design closed a tick before a script's actions arrived, so units stuttered and actions landed late or never. Scripts now run inside the tick and the tick waits for all of them; I rejected a background queue and an overflow buffer. Actions land on time, and the slowest bot sets the length of the tick.</p>
+</section>
+<section class="decision">
+<h3>Workers keep world state between ticks</h3>
+<p>Resending all terrain and fog every tick came to about 2.8 MB per player on an 11 by 11 world, and in a 30-bot run no player's tick met its deadline. A worker now gets terrain once at setup and only the changes after that. I rejected sending only nearby rooms, which would break world-wide pathing. Every language worker must now implement this protocol.</p>
+</section>
+<section class="decision">
+<h3>Rooms exist, but only for the server</h3>
+<p>Rooms started as something players claim. I reversed that: a room is now an internal partition for occupancy, pathfinding and fog of war, and a bot sees one continuous world. Server code may use rooms and player-facing code never shows them.</p>
+</section>
+<section class="decision">
+<h3>One client: Godot</h3>
+<p>I built clients in Unity, Unreal and Godot over the same WebSocket stream. Two live clients meant every visual and wire change was done twice, so Godot became the only one and the others are archived. There is now one client to keep in step with the server, and no browser client.</p>
+</section>
+<section class="decision">
+<h3>A bot lives in the player's own folder</h3>
+<p>A player's code lives in a local folder that the client creates and pushes, and the server never writes back. I rejected activating a starter on the server, which would need a hosted editor, and a folder inside the install, which an uninstall deletes. Git and the editor stay the player's own tools.</p>
+</section>
+<h2>Trade-offs</h2>
+<ul>
+<li>The tick is as slow as its slowest bot. Each bot is capped at 150 ms of CPU per tick to bound that.</li>
+<li>Watching from a browser is given up until a separate viewer exists, because Godot cannot export C# to the web.</li>
+<li>The server lists 24 languages, but only Python works end to end so far, and the client offers only languages that run.</li>
+</ul>
+<h2>What I'd change</h2>
+<ul>
+<li>Pick the client sooner, rather than building three.</li>
+<li>Get one language working end to end before listing the rest.</li>
+<li>Delete a wrong comment when it is written: stale comments calling rooms obsolete nearly led to a removal costed at over 120 files.</li>
 </ul>
 </main>
 </body>

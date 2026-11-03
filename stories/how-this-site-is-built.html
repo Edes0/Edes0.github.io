@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How this site is built · Andreas Sjögren</title>
+<meta name="description" content="Every claim on this site started as evidence I keep private: harvested records of my work, plus interviews for what records cannot show. Each draft cites that…">
+<link rel="canonical" href="https://edes0.github.io/stories/how-this-site-is-built.html">
+<meta property="og:url" content="https://edes0.github.io/stories/how-this-site-is-built.html">
+<meta property="og:title" content="How this site is built · Andreas Sjögren">
+<meta property="og:description" content="Every claim on this site started as evidence I keep private: harvested records of my work, plus interviews for what records cannot show. Each draft cites that…">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../now.html">Now</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li></ul></nav></header>
+<main id="main">
+<h1>How this site is built</h1>
+<p>Every claim on this site started as evidence I keep private: harvested records of my work, plus interviews for what records cannot show. Each draft cites that evidence claim by claim, and a validator refuses a citation that does not resolve.</p>
+<p>I read the public text of every entry before it goes out. My approval is bound to a hash of that text, so any edit voids it. One tool, promote, is the only way into the published layer, and it strips the citations and private notes.</p>
+<p>That boundary matters because much of the evidence belongs to my employer. It is never committed. A leak scan runs on every promotion, every generated page and, through git hooks, every commit, looking for denied terms, repository names, ticket keys, commit hashes and unlisted hosts.</p>
+<p>The site is a small Python build that writes static HTML from the published Markdown into a branch GitHub Pages serves. It uses no JavaScript framework, no font files and no images. I picked the look by building the real site under three stylesheets and choosing one, then checked it with the Nu HTML Checker and Lighthouse.</p>
+<p>The tools and the site were written with Claude Code under my harness, spec-first, with critic-panel reviews. I decided the boundary, the look and the content.</p>
+<h2>Projects</h2>
+<ul>
+<li><a href="../projects/agent-harness.html">Claude Code agent harness</a></li>
+</ul>
+</main>
+</body>
+</html>

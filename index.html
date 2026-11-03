@@ -3,72 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Profile</title>
+<title>Andreas Sjögren</title>
+<meta name="description" content="Software developer in Sweden. I build systems end to end: rendering backends, web and desktop apps, an AI agent harness, and Autonomy, a programmable game.">
+<link rel="canonical" href="https://edes0.github.io/">
+<meta property="og:url" content="https://edes0.github.io/">
+<meta property="og:title" content="Andreas Sjögren">
+<meta property="og:description" content="Software developer in Sweden. I build systems end to end: rendering backends, web and desktop apps, an AI agent harness, and Autonomy, a programmable game.">
+<meta property="og:type" content="profile">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Andreas Sjögren", "jobTitle": "Software developer", "url": "https://edes0.github.io", "sameAs": ["https://github.com/Edes0"]}}</script>
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
-<header><nav><a href="index.html">Home</a></nav></header>
-<main>
-<section class="about">
-<h1>About me</h1>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav><ul><li><a href="index.html">Andreas Sjögren</a></li><li><a href="now.html">Now</a></li><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li></ul></nav></header>
+<main id="main">
+<h1>Andreas Sjögren</h1>
 <p>I am a software developer in Sweden. Since 2023 I have worked on Spark Digital Showroom, a room configurator, and since 2026 much of my work runs through AI coding agents and the harness I built around them.</p>
-<p>I like building systems end to end, from the backend to the tools other people use. In my own time I am building Autonomy, a programmable game where players write bots that play around the clock in one shared world, and I hope to launch it.</p>
-</section>
 <section>
-<h2>Roles</h2>
+<h2>Updates</h2>
+<article class="update">
+<h3><a href="updates/2026-11-03-site-rebuilt.html">Site rebuilt around five projects</a></h3>
+<p><time datetime="2026-11-03">2026-11-03</time></p>
+<p>This site used to list every project at equal weight. It now leads with five, each with the decisions behind it, what I gave up and what I would change. The rest are in an archive table.</p>
+<p>There is also a Now page, and these updates. The story of how the site itself is built is on the About page.</p>
+</article>
+<article class="update">
+<h3><a href="updates/2026-11-03-autonomy-devlog-001.html">Autonomy devlog 001</a></h3>
+<p><time datetime="2026-11-03">2026-11-03</time></p>
+<p>The first numbered entry, and the first time I have written this up in public. Autonomy is a programmable idle game: you write a bot and it plays on its own in one shared world.</p>
+<h2>Shipped</h2>
 <ul>
-<li><a href="roles/frontedge-it.html">FrontEdge IT</a> · Backend developer · 2022-08 – 2023-07</li>
-<li><a href="roles/sparkvision.html">SparkVision</a> · Software developer · 2023-08 – present</li>
+<li>Seeded biomes, so the world has three kinds of terrain.</li>
+<li>Colonies can be razed and repaired.</li>
+<li>Colonies spawn from the edge of the world and spread out by a seeded pick.</li>
+<li>The client loads the rooms around the camera and draws low-resolution tiles for the rest.</li>
+<li>The first phase of a hosted world: a proxy, backups and a way back.</li>
 </ul>
-</section>
-<section>
-<h2>Projects</h2>
+<h2>Decided</h2>
 <ul>
-<li><a href="projects/agent-harness.html">Claude Code agent harness</a> · 2026-05 – present · professional</li>
-<li><a href="projects/ai-trader.html">AITrader</a> · 2026-05 – present · hobby</li>
-<li><a href="projects/autonomy.html">Autonomy</a> · 2025-11 – present · independent</li>
-<li><a href="projects/customer-web-admin.html">Customer web admin</a> · 2025-04 – present · professional</li>
-<li><a href="projects/deploy-service-v2.html">Deploy service v2</a> · 2026-10 – present · professional</li>
-<li><a href="projects/league-addon.html">League draft helper</a> · 2026-06 – 2026-07 · hobby</li>
-<li><a href="projects/poppers.html">Poppers (game jam)</a> · 2025-01 – 2025-01 · hobby</li>
-<li><a href="projects/room-photo-segmentation.html">Room-photo surface segmentation service</a> · 2026-06 – present · professional</li>
-<li><a href="projects/server-watchdog.html">Server application watchdog</a> · 2025-05 – present · professional</li>
-<li><a href="projects/showroom-backend.html">Spark Digital Showroom: rendering and API backend</a> · 2023-08 – present · professional</li>
-<li><a href="projects/showroom-desktop.html">Spark Digital Showroom: desktop app and updater</a> · 2024-02 – 2024-12 · professional</li>
-<li><a href="projects/showroom-desktop-v2.html">Spark Digital Showroom desktop v2: WPF rewrite</a> · 2026-05 – present · professional</li>
-<li><a href="projects/showroom-room-picker.html">Spark Digital Showroom: model selector</a> · 2023-08 – 2025-10 · professional</li>
-<li><a href="projects/showroom-web.html">Spark Digital Showroom: web front end</a> · 2023-10 – present · professional</li>
-<li><a href="projects/team-workspace.html">Team workspace for agent-assisted development</a> · 2026-09 – present · professional</li>
+<li>Workers keep world state between ticks. Resending all terrain every tick came to about 2.8 MB per player on a larger world, and in a 30-bot run no player's tick met its deadline.</li>
+<li>A player's bot lives in a local folder that the client pushes, so git and the editor stay theirs.</li>
+<li>The game offers only languages that run. An audit found only Python works end to end out of the 24 the server lists.</li>
 </ul>
-</section>
-<section>
-<h2>Stories</h2>
+<h2>Next</h2>
 <ul>
-<li><a href="stories/code-to-harness.html">From hand-written code to agentic harness work</a></li>
+<li>A closed demo for 10 to 30 invited players on one hosted world.</li>
+<li>More languages running end to end.</li>
 </ul>
+<p><a href="projects/autonomy.html">Autonomy</a></p>
+</article>
 </section>
-<section>
-<h2>Timeline</h2>
-<table>
-<thead><tr><th>Project</th><th>Period</th></tr></thead>
-<tbody>
-<tr><td>Spark Digital Showroom: model selector</td><td>2023-08 – 2025-10</td></tr>
-<tr><td>Spark Digital Showroom: rendering and API backend</td><td>2023-08 – present</td></tr>
-<tr><td>Spark Digital Showroom: web front end</td><td>2023-10 – present</td></tr>
-<tr><td>Spark Digital Showroom: desktop app and updater</td><td>2024-02 – 2024-12</td></tr>
-<tr><td>Poppers (game jam)</td><td>2025-01 – 2025-01</td></tr>
-<tr><td>Customer web admin</td><td>2025-04 – present</td></tr>
-<tr><td>Server application watchdog</td><td>2025-05 – present</td></tr>
-<tr><td>Autonomy</td><td>2025-11 – present</td></tr>
-<tr><td>AITrader</td><td>2026-05 – present</td></tr>
-<tr><td>Claude Code agent harness</td><td>2026-05 – present</td></tr>
-<tr><td>Spark Digital Showroom desktop v2: WPF rewrite</td><td>2026-05 – present</td></tr>
-<tr><td>League draft helper</td><td>2026-06 – 2026-07</td></tr>
-<tr><td>Room-photo surface segmentation service</td><td>2026-06 – present</td></tr>
-<tr><td>Team workspace for agent-assisted development</td><td>2026-09 – present</td></tr>
-<tr><td>Deploy service v2</td><td>2026-10 – present</td></tr>
-</tbody>
-</table>
+<section class="featured">
+<h2>Featured projects</h2>
+<article class="card">
+<h3><a href="projects/autonomy.html">Autonomy</a></h3>
+<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2025-11 – present</p>
+<p>A programmable idle game: players write bots that run around the clock in one shared world. Pre-alpha, over 200 specs, built solo.</p>
+</article>
+<article class="card">
+<h3><a href="projects/agent-harness.html">Claude Code agent harness</a></h3>
+<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2026-05 – present</p>
+<p>A versioned Claude Code setup that takes a feature from idea to merged pull request: about 40 skills, over 500 commits. I built it and use it daily.</p>
+</article>
+<article class="card">
+<h3><a href="projects/showroom-desktop-v2.html">Spark Digital Showroom desktop v2: WPF rewrite</a></h3>
+<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2026-05 – present</p>
+<p>A WPF rewrite of a Windows kiosk app, about to reach 50 customers and hundreds of screens. I built it from scratch.</p>
+</article>
+<article class="card">
+<h3><a href="projects/team-workspace.html">Team workspace for agent-assisted development</a></h3>
+<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2026-09 – present</p>
+<p>A shared Claude Code workspace used by six people in three departments. I started it alone, on my own initiative, and built it.</p>
+</article>
+<article class="card">
+<h3><a href="projects/showroom-backend.html">Spark Digital Showroom: rendering and API backend</a></h3>
+<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2023-08 – present</p>
+<p>The .NET backend behind about 95 production room-configurator apps. I have worked on it since my first month, on rendering, pricing and orders.</p>
+</article>
 </section>
 </main>
 <footer>

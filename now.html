@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Now · Andreas Sjögren</title>
+<meta name="description" content="Software developer in Sweden. I build systems end to end: rendering backends, web and desktop apps, an AI agent harness, and Autonomy, a programmable game.">
+<link rel="canonical" href="https://edes0.github.io/now.html">
+<meta property="og:url" content="https://edes0.github.io/now.html">
+<meta property="og:title" content="Now · Andreas Sjögren">
+<meta property="og:description" content="Software developer in Sweden. I build systems end to end: rendering backends, web and desktop apps, an AI agent harness, and Autonomy, a programmable game.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav><ul><li><a href="index.html">Andreas Sjögren</a></li><li><a href="now.html">Now</a></li><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li></ul></nav></header>
+<main id="main">
+<h1>Now</h1>
+<p>Updated 3 November 2026.</p>
+<h2>Autonomy</h2>
+<p>I am getting my programmable game ready for a closed demo: 10 to 30 invited players on one hosted world. Right now that means the first minutes of play, a fair economy and getting more languages to run end to end.</p>
+<h2>At work</h2>
+<p>At SparkVision I am getting the rewritten desktop app out to customers, and I keep extending the agent harness and the shared workspace that colleagues use.</p>
+<h2>This site</h2>
+<p>I have just rebuilt it around five featured projects, with the decisions and trade-offs behind each one.</p>
+<section>
+<h2>Updates</h2>
+<article class="update">
+<h3><a href="updates/2026-11-03-site-rebuilt.html">Site rebuilt around five projects</a></h3>
+<p><time datetime="2026-11-03">2026-11-03</time></p>
+<p>This site used to list every project at equal weight. It now leads with five, each with the decisions behind it, what I gave up and what I would change. The rest are in an archive table.</p>
+<p>There is also a Now page, and these updates. The story of how the site itself is built is on the About page.</p>
+</article>
+<article class="update">
+<h3><a href="updates/2026-11-03-autonomy-devlog-001.html">Autonomy devlog 001</a></h3>
+<p><time datetime="2026-11-03">2026-11-03</time></p>
+<p>The first numbered entry, and the first time I have written this up in public. Autonomy is a programmable idle game: you write a bot and it plays on its own in one shared world.</p>
+<h2>Shipped</h2>
+<ul>
+<li>Seeded biomes, so the world has three kinds of terrain.</li>
+<li>Colonies can be razed and repaired.</li>
+<li>Colonies spawn from the edge of the world and spread out by a seeded pick.</li>
+<li>The client loads the rooms around the camera and draws low-resolution tiles for the rest.</li>
+<li>The first phase of a hosted world: a proxy, backups and a way back.</li>
+</ul>
+<h2>Decided</h2>
+<ul>
+<li>Workers keep world state between ticks. Resending all terrain every tick came to about 2.8 MB per player on a larger world, and in a 30-bot run no player's tick met its deadline.</li>
+<li>A player's bot lives in a local folder that the client pushes, so git and the editor stay theirs.</li>
+<li>The game offers only languages that run. An audit found only Python works end to end out of the 24 the server lists.</li>
+</ul>
+<h2>Next</h2>
+<ul>
+<li>A closed demo for 10 to 30 invited players on one hosted world.</li>
+<li>More languages running end to end.</li>
+</ul>
+<p><a href="projects/autonomy.html">Autonomy</a></p>
+</article>
+</section>
+</main>
+</body>
+</html>
