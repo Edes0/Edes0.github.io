@@ -15,60 +15,77 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><nav><ul><li><a href="index.html">Andreas Sjögren</a></li><li><a href="now.html">Now</a></li><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li></ul></nav></header>
+<header><nav><ul><li><a href="index.html">Andreas Sjögren</a></li><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li><li><a href="now.html">Now</a></li><li><a href="about.html#contact">Contact</a></li></ul></nav></header>
 <main id="main">
 <h1>Projects</h1>
-<section class="featured">
-<h2>Featured projects</h2>
-<article class="card">
-<h3><a href="projects/autonomy.html">Autonomy</a></h3>
-<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2025-11 – present</p>
-<p>A programmable idle game: players write bots that run around the clock in one shared world. Pre-alpha, over 200 specs, built solo.</p>
-</article>
-<article class="card">
-<h3><a href="projects/agent-harness.html">Claude Code agent harness</a></h3>
-<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2026-05 – present</p>
-<p>A versioned Claude Code setup that takes a feature from idea to merged pull request: about 40 skills, over 500 commits. I built it and use it daily.</p>
-</article>
-<article class="card">
-<h3><a href="projects/showroom-desktop-v2.html">Spark Digital Showroom desktop v2: WPF rewrite</a></h3>
-<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2026-05 – present</p>
-<p>A WPF rewrite of a Windows kiosk app, about to reach 50 customers and hundreds of screens. I built it from scratch.</p>
-</article>
-<article class="card">
-<h3><a href="projects/team-workspace.html">Team workspace for agent-assisted development</a></h3>
-<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2026-09 – present</p>
-<p>A shared Claude Code workspace used by six people in three departments. I started it alone, on my own initiative, and built it.</p>
-</article>
-<article class="card">
-<h3><a href="projects/showroom-backend.html">Spark Digital Showroom: rendering and API backend</a></h3>
-<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2023-08 – present</p>
-<p>The .NET backend behind about 95 production room-configurator apps. I have worked on it since my first month, on rendering, pricing and orders.</p>
-</article>
+<section class="timeline" style="--n: 48">
+<h2>Timeline</h2>
+<div class="axis"><span style="grid-column: 3">2023</span><span style="grid-column: 15">2024</span><span style="grid-column: 27">2025</span><span style="grid-column: 39">2026</span></div>
+<div class="lane">
+<h3><a href="roles/frontedge-it.html">FrontEdge IT</a></h3>
+<ol>
+<li class="bar" data-start="2022-11" data-end="2023-07" style="--s: 1; --e: 9"><a href="projects/jackon.html">Jackon ordering system and packing planner</a> <span class="period">2022-11 – 2023-07</span></li>
+<li class="bar" data-start="2022-11" data-end="2022-12" style="--s: 1; --e: 2"><a href="projects/mimbly.html">Mimbly event backend</a> <span class="period">2022-11 – 2022-12</span></li>
+</ol>
+</div>
+<div class="lane">
+<h3><a href="roles/sparkvision.html">SparkVision</a></h3>
+<ol>
+<li class="bar open" data-start="2023-08" data-end="2026-10" style="--s: 10; --e: 48"><a href="projects/spark-digital-showroom.html">Spark Digital Showroom</a> <span class="period">2023-08 – present</span></li>
+<li class="bar open" data-start="2023-08" data-end="2026-10" style="--s: 10; --e: 48"><a href="projects/showroom-backend.html">Spark Digital Showroom: rendering and API backend</a> <span class="period">2023-08 – present</span></li>
+<li class="bar open" data-start="2023-08" data-end="2026-10" style="--s: 10; --e: 48"><a href="projects/showroom-web.html">Spark Digital Showroom: web front end</a> <span class="period">2023-08 – present</span></li>
+<li class="bar" data-start="2024-02" data-end="2024-12" style="--s: 16; --e: 26"><a href="projects/showroom-desktop.html">Spark Digital Showroom: desktop app and updater</a> <span class="period">2024-02 – 2024-12</span></li>
+<li class="bar open" data-start="2025-04" data-end="2026-10" style="--s: 30; --e: 48"><a href="projects/customer-web-admin.html">Customer web admin</a> <span class="period">2025-04 – present</span></li>
+<li class="bar open" data-start="2025-05" data-end="2026-10" style="--s: 31; --e: 48"><a href="projects/server-watchdog.html">Server application watchdog</a> <span class="period">2025-05 – present</span></li>
+<li class="bar open" data-start="2026-05" data-end="2026-10" style="--s: 43; --e: 48"><a href="projects/showroom-desktop-v2.html">Spark Digital Showroom desktop v2: WPF rewrite</a> <span class="period">2026-05 – present</span></li>
+<li class="bar open" data-start="2026-06" data-end="2026-10" style="--s: 44; --e: 48"><a href="projects/room-photo-segmentation.html">Room-photo surface segmentation service</a> <span class="period">2026-06 – present</span></li>
+<li class="bar open" data-start="2026-09" data-end="2026-10" style="--s: 47; --e: 48"><a href="projects/team-workspace.html">Team workspace for agent-assisted development</a> <span class="period">2026-09 – present</span></li>
+<li class="bar open" data-start="2026-10" data-end="2026-10" style="--s: 48; --e: 48"><a href="projects/deploy-service-v2.html">Deploy service v2</a> <span class="period">2026-10 – present</span></li>
+</ol>
+</div>
+<div class="lane">
+<h3>Independent</h3>
+<ol>
+<li class="bar" data-start="2025-01" data-end="2025-01" style="--s: 27; --e: 27"><a href="projects/poppers.html">Poppers (game jam)</a> <span class="period">2025-01 – 2025-01</span></li>
+<li class="bar open" data-start="2025-11" data-end="2026-10" style="--s: 37; --e: 48"><a href="projects/autonomy.html">Autonomy</a> <span class="period">2025-11 – present</span></li>
+<li class="bar open" data-start="2026-05" data-end="2026-10" style="--s: 43; --e: 48"><a href="projects/ai-trader.html">AITrader</a> <span class="period">2026-05 – present</span></li>
+<li class="bar open" data-start="2026-05" data-end="2026-10" style="--s: 43; --e: 48"><a href="projects/agent-harness.html">Claude Code agent harness</a> <span class="period">2026-05 – present</span></li>
+<li class="bar" data-start="2026-06" data-end="2026-07" style="--s: 44; --e: 45"><a href="projects/league-addon.html">League draft helper</a> <span class="period">2026-06 – 2026-07</span></li>
+</ol>
+</div>
 </section>
 <section>
 <h2>All projects</h2>
 <table>
 <thead><tr><th>Year</th><th>Project</th><th>Made at</th><th>Built with</th><th>Status</th></tr></thead>
 <tbody>
-<tr><td>2026</td><td><a href="projects/deploy-service-v2.html">Deploy service v2</a></td><td>SparkVision</td><td>C#, .NET, HAProxy</td><td><span class="chip"><span aria-hidden="true">·</span> active</span></td></tr>
-<tr><td>2026</td><td><a href="projects/team-workspace.html">Team workspace for agent-assisted development</a></td><td>SparkVision</td><td>Claude Code, Python, PowerShell</td><td><span class="chip"><span aria-hidden="true">·</span> active</span></td></tr>
-<tr><td>2026</td><td><a href="projects/league-addon.html">League draft helper</a></td><td>Hobby</td><td>Python, tkinter, SQLite</td><td><span class="chip"><span aria-hidden="true">✓</span> shipped</span></td></tr>
-<tr><td>2026</td><td><a href="projects/room-photo-segmentation.html">Room-photo surface segmentation service</a></td><td>SparkVision</td><td>Python, PowerShell</td><td><span class="chip"><span aria-hidden="true">·</span> active</span></td></tr>
-<tr><td>2026</td><td><a href="projects/ai-trader.html">AITrader</a></td><td>Hobby</td><td>Python, pandas, Alpaca</td><td><span class="chip"><span aria-hidden="true">·</span> active</span></td></tr>
-<tr><td>2026</td><td><a href="projects/agent-harness.html">Claude Code agent harness</a></td><td>SparkVision</td><td>Claude Code, Python, PowerShell</td><td><span class="chip"><span aria-hidden="true">·</span> active</span></td></tr>
-<tr><td>2026</td><td><a href="projects/showroom-desktop-v2.html">Spark Digital Showroom desktop v2: WPF rewrite</a></td><td>SparkVision</td><td>C#, .NET, WPF</td><td><span class="chip"><span aria-hidden="true">·</span> active</span></td></tr>
-<tr><td>2025</td><td><a href="projects/autonomy.html">Autonomy</a></td><td>Independent</td><td>C#, .NET 10, ASP.NET Core</td><td><span class="chip"><span aria-hidden="true">·</span> active</span></td></tr>
-<tr><td>2025</td><td><a href="projects/server-watchdog.html">Server application watchdog</a></td><td>SparkVision</td><td>Batch, Python, Windows Server</td><td><span class="chip"><span aria-hidden="true">·</span> active</span></td></tr>
-<tr><td>2025</td><td><a href="projects/customer-web-admin.html">Customer web admin</a></td><td>SparkVision</td><td>C#, .NET, ASP.NET</td><td><span class="chip"><span aria-hidden="true">·</span> active</span></td></tr>
-<tr><td>2025</td><td><a href="projects/poppers.html">Poppers (game jam)</a></td><td>Hobby</td><td>Unity, C#, URP</td><td><span class="chip"><span aria-hidden="true">✓</span> shipped</span></td></tr>
-<tr><td>2024</td><td><a href="projects/showroom-desktop.html">Spark Digital Showroom: desktop app and updater</a></td><td>SparkVision</td><td>C#, .NET MAUI, Jenkins</td><td><span class="chip"><span aria-hidden="true">✓</span> shipped</span></td></tr>
-<tr><td>2023</td><td><a href="projects/showroom-web.html">Spark Digital Showroom: web front end</a></td><td>SparkVision</td><td>TypeScript, React, Playwright</td><td><span class="chip"><span aria-hidden="true">·</span> active</span></td></tr>
-<tr><td>2023</td><td><a href="projects/showroom-room-picker.html">Spark Digital Showroom: model selector</a></td><td>SparkVision</td><td>TypeScript, React</td><td><span class="chip"><span aria-hidden="true">✓</span> shipped</span></td></tr>
-<tr><td>2023</td><td><a href="projects/showroom-backend.html">Spark Digital Showroom: rendering and API backend</a></td><td>SparkVision</td><td>C#, .NET, ASP.NET</td><td><span class="chip"><span aria-hidden="true">·</span> active</span></td></tr>
+<tr><td>2026</td><td><a href="projects/deploy-service-v2.html">Deploy service v2</a></td><td>SparkVision</td><td>C#, .NET, HAProxy</td><td>Active</td></tr>
+<tr><td>2026</td><td><a href="projects/team-workspace.html">Team workspace for agent-assisted development</a></td><td>SparkVision</td><td>Claude Code, Python, PowerShell</td><td>Active</td></tr>
+<tr><td>2026</td><td><a href="projects/league-addon.html">League draft helper</a></td><td>Hobby</td><td>Python, tkinter, SQLite</td><td>Shipped</td></tr>
+<tr><td>2026</td><td><a href="projects/room-photo-segmentation.html">Room-photo surface segmentation service</a></td><td>SparkVision</td><td>Python, PowerShell</td><td>Active</td></tr>
+<tr><td>2026</td><td><a href="projects/ai-trader.html">AITrader</a></td><td>Hobby</td><td>Python, pandas, Alpaca</td><td>Active</td></tr>
+<tr><td>2026</td><td><a href="projects/agent-harness.html">Claude Code agent harness</a></td><td>Independent</td><td>Claude Code, Python, PowerShell</td><td>Active</td></tr>
+<tr><td>2026</td><td><a href="projects/showroom-desktop-v2.html">Spark Digital Showroom desktop v2: WPF rewrite</a></td><td>SparkVision</td><td>C#, .NET, WPF</td><td>Active</td></tr>
+<tr><td>2025</td><td><a href="projects/autonomy.html">Autonomy</a></td><td>Independent</td><td>C#, .NET 10, ASP.NET Core</td><td>Active</td></tr>
+<tr><td>2025</td><td><a href="projects/server-watchdog.html">Server application watchdog</a></td><td>SparkVision</td><td>Batch, Python, Windows Server</td><td>Active</td></tr>
+<tr><td>2025</td><td><a href="projects/customer-web-admin.html">Customer web admin</a></td><td>SparkVision</td><td>C#, .NET, ASP.NET</td><td>Active</td></tr>
+<tr><td>2025</td><td><a href="projects/poppers.html">Poppers (game jam)</a></td><td>Hobby</td><td>Unity, C#, URP</td><td>Shipped</td></tr>
+<tr><td>2024</td><td><a href="projects/showroom-desktop.html">Spark Digital Showroom: desktop app and updater</a></td><td>SparkVision</td><td>C#, .NET MAUI, Jenkins</td><td>Shipped</td></tr>
+<tr><td>2023</td><td><a href="projects/spark-digital-showroom.html">Spark Digital Showroom</a></td><td>SparkVision</td><td>C#, .NET, ASP.NET</td><td>Active</td></tr>
+<tr><td>2023</td><td><a href="projects/showroom-backend.html">Spark Digital Showroom: rendering and API backend</a></td><td>SparkVision</td><td>C#, .NET, ASP.NET</td><td>Active</td></tr>
+<tr><td>2023</td><td><a href="projects/showroom-web.html">Spark Digital Showroom: web front end</a></td><td>SparkVision</td><td>TypeScript, React, Playwright</td><td>Active</td></tr>
+<tr><td>2022</td><td><a href="projects/jackon.html">Jackon ordering system and packing planner</a></td><td>FrontEdge IT</td><td>.NET, Node.js</td><td>Handed over</td></tr>
+<tr><td>2022</td><td><a href="projects/mimbly.html">Mimbly event backend</a></td><td>FrontEdge IT</td><td>C#, .NET 6, Azure Functions</td><td>Handed over</td></tr>
 </tbody>
 </table>
 </section>
 </main>
+<footer>
+<ul>
+<li><a href="mailto:sjogrenandreas@live.se">Email</a></li>
+<li><a href="https://github.com/Edes0">GitHub</a></li>
+<li><a href="cv.pdf">CV</a></li>
+</ul>
+</footer>
 </body>
 </html>

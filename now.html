@@ -15,26 +15,49 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><nav><ul><li><a href="index.html">Andreas Sjögren</a></li><li><a href="now.html">Now</a></li><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li></ul></nav></header>
+<header><nav><ul><li><a href="index.html">Andreas Sjögren</a></li><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li><li><a href="now.html">Now</a></li><li><a href="about.html#contact">Contact</a></li></ul></nav></header>
 <main id="main">
 <h1>Now</h1>
-<p>Updated 3 November 2026.</p>
-<h2>Autonomy</h2>
-<p>I am getting my programmable game ready for a closed demo: 10 to 30 invited players on one hosted world. Right now that means the first minutes of play, a fair economy and getting more languages to run end to end.</p>
-<h2>At work</h2>
-<p>At SparkVision I am getting the rewritten desktop app out to customers, and I keep extending the agent harness and the shared workspace that colleagues use.</p>
-<h2>This site</h2>
-<p>I have just rebuilt it around five featured projects, with the decisions and trade-offs behind each one.</p>
-<section>
-<h2>Updates</h2>
+<p class="intro">My changelog, newest first.</p>
 <article class="update">
-<h3><a href="updates/2026-11-03-site-rebuilt.html">Site rebuilt around five projects</a></h3>
+<h2><a href="updates/2026-11-13-autonomy-dev-update-3.html">Autonomy dev update 3</a></h2>
+<p><time datetime="2026-11-13">2026-11-13</time></p>
+<p>Lately I have mostly worked on the start of the game: there is now a tutorial and a code editor right inside it. I have also spent time on the world itself, with new biomes, a night sky, weather and a few small creatures.</p>
+<h2>Shipped</h2>
+<ul>
+<li>An in-game code editor.</li>
+<li>A tutorial.</li>
+<li>Biomes, each with its own rock and lights.</li>
+<li>A night sky, and weather that rolls every night: clear, drizzle, snow or a storm.</li>
+<li>Lamp snails in the canyon.</li>
+<li>A new minimal HUD.</li>
+</ul>
+<p><a href="projects/autonomy.html">Autonomy</a></p>
+</article>
+<article class="update">
+<h2><a href="updates/2026-11-11-working-on.html">What I am working on</a></h2>
+<p><time datetime="2026-11-11">2026-11-11</time></p>
+<h2>Autonomy</h2>
+<p>I am getting my programmable game ready for a closed demo: 10 to 30 invited players on one hosted world. The first minutes of play now have a tutorial and a code editor inside the game. Next is a fair economy and getting more languages to run end to end.</p>
+<h2>At work</h2>
+<p>At SparkVision I am getting the rewritten desktop app out to customers, building a new deploy service, moving customer configuration out of the backends into the web admin, and getting the whole showroom stack to run in Docker.</p>
+<p><a href="projects/autonomy.html">Autonomy</a>, <a href="projects/showroom-desktop-v2.html">Spark Digital Showroom desktop v2: WPF rewrite</a>, <a href="projects/deploy-service-v2.html">Deploy service v2</a>, <a href="projects/customer-web-admin.html">Customer web admin</a></p>
+</article>
+<article class="update">
+<h2><a href="updates/2026-11-07-showroom-regrouped.html">The Showroom work as one product</a></h2>
+<p><time datetime="2026-11-07">2026-11-07</time></p>
+<p>My work at SparkVision used to sit here as nine separate projects. It is now one product page, Spark Digital Showroom, with its features, who built what, and the decisions that span it. The backend, the web front end, the desktop apps and the services that deploy and watch them are its parts.</p>
+<p>Two other changes. The project pages no longer carry trade-offs and what I would change, since most of these projects are still being developed. And there is a new featured project from my first customer job: the event backend for Mimbly's water-recycling dashboard.</p>
+<p><a href="projects/spark-digital-showroom.html">Spark Digital Showroom</a>, <a href="projects/mimbly.html">Mimbly event backend</a></p>
+</article>
+<article class="update">
+<h2><a href="updates/2026-11-03-site-rebuilt.html">Site rebuilt around five projects</a></h2>
 <p><time datetime="2026-11-03">2026-11-03</time></p>
 <p>This site used to list every project at equal weight. It now leads with five, each with the decisions behind it, what I gave up and what I would change. The rest are in an archive table.</p>
 <p>There is also a Now page, and these updates. The story of how the site itself is built is on the About page.</p>
 </article>
 <article class="update">
-<h3><a href="updates/2026-11-03-autonomy-devlog-001.html">Autonomy devlog 001</a></h3>
+<h2><a href="updates/2026-11-03-autonomy-devlog-001.html">Autonomy devlog 001</a></h2>
 <p><time datetime="2026-11-03">2026-11-03</time></p>
 <p>The first numbered entry, and the first time I have written this up in public. Autonomy is a programmable idle game: you write a bot and it plays on its own in one shared world.</p>
 <h2>Shipped</h2>
@@ -58,7 +81,32 @@
 </ul>
 <p><a href="projects/autonomy.html">Autonomy</a></p>
 </article>
-</section>
+<article class="update">
+<h2><a href="updates/2026-10-31-autonomy-dev-update-2.html">Autonomy dev update 2</a></h2>
+<p><time datetime="2026-10-31">2026-10-31</time></p>
+<p>The second weekly update, first posted to the game's Discord. This week went into the small details.</p>
+<h2>Shipped</h2>
+<ul>
+<li>More visual variety and animation, so the units feel alive.</li>
+<li>Atmosphere in the world.</li>
+<li>A first look at the game's sound direction, which I want to develop further.</li>
+</ul>
+<figure class="media">
+<video controls muted playsinline preload="none" poster="media/updates-2026-10-31-autonomy-dev-update-2/assembly.poster.webp" width="1280" height="720">
+<source src="media/updates-2026-10-31-autonomy-dev-update-2/assembly.webm" type="video/webm">
+<source src="media/updates-2026-10-31-autonomy-dev-update-2/assembly.mp4" type="video/mp4">
+</video>
+<figcaption>From this update&#x27;s video: an assembly platform builds a unit part by part, and the unit walks off under its own light</figcaption>
+</figure>
+<p><a href="projects/autonomy.html">Autonomy</a></p>
+</article>
 </main>
+<footer>
+<ul>
+<li><a href="mailto:sjogrenandreas@live.se">Email</a></li>
+<li><a href="https://github.com/Edes0">GitHub</a></li>
+<li><a href="cv.pdf">CV</a></li>
+</ul>
+</footer>
 </body>
 </html>

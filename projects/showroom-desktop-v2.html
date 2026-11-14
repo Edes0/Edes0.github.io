@@ -15,18 +15,28 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../now.html">Now</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li></ul></nav></header>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li><li><a href="../now.html">Now</a></li><li><a href="../about.html#contact">Contact</a></li></ul></nav></header>
 <main id="main">
 <h1>Spark Digital Showroom desktop v2: WPF rewrite</h1>
-<dl>
-<dt>Period</dt><dd>2026-05 – present</dd>
-<dt>Kind</dt><dd>professional</dd>
-<dt>Status</dt><dd><span class="chip"><span aria-hidden="true">·</span> active</span></dd>
-<dt>Tech</dt><dd>C#, .NET, WPF, WebView2, Serilog, Inno Setup, Jenkins</dd>
-<dt>Tags</dt><dd>desktop, Windows, kiosk, auto-update, code signing</dd>
-<dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
-</dl>
+<div class="project-top">
+<div class="panel">
 <p>A WPF rewrite of a Windows kiosk app, about to reach 50 customers and hundreds of screens. I built it from scratch.</p>
+<dl class="strip">
+<div><dt>Period</dt><dd>2026-05 – present</dd></div>
+<div><dt>My role</dt><dd>Sole developer; built it from scratch</dd></div>
+<div><dt>Team</dt><dd>Alone</dd></div>
+<div><dt>Status</dt><dd>Active</dd></div>
+<div><dt>Built with</dt><dd>C#, .NET, WPF, WebView2, Serilog, Inno Setup, Jenkins</dd></div>
+<div><dt>Made at</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd></div>
+<div><dt>Part of</dt><dd><a href="../projects/spark-digital-showroom.html">Spark Digital Showroom</a></dd></div>
+</dl>
+</div>
+<div class="hero">
+<figure class="media">
+<img src="../media/projects-showroom-desktop-v2/kiosk.webp" srcset="../media/projects-showroom-desktop-v2/kiosk-800.webp 800w, ../media/projects-showroom-desktop-v2/kiosk.webp 1600w" sizes="(min-width: 52rem) 45rem, 100vw" width="1600" height="900" loading="lazy" alt="What the kiosk shows: the web configurator filling the screen, here on a demo setup captured in a browser">
+</figure>
+</div>
+<div class="body">
 <h2>Summary</h2>
 <p>A rewrite of the Windows desktop app. The first version, built in .NET MAUI, proved restrictive; v2 is a more deliberate design: a WPF shell that wraps the deployed web configurator, with kiosk behaviour, a new installer and a signed release flow through the company's update hub. I built it from scratch.</p>
 <p>AI-assisted: written with Claude Code from the start. I made the design decisions and reviewed the changes.</p>
@@ -40,10 +50,9 @@
 <li>Built the release path: one per-user installer built by Jenkins, a re-runnable release job, signed releases, and a checksum check on the hub.</li>
 <li>Moved the app to .NET 10 before .NET 8 support ended.</li>
 <li>Explained every customer setting in the example setup file and removed the unused ones.</li>
-</ul>
-<h2>Outcomes</h2>
-<ul>
-<li>As of October 2026, about to be released to 50 customers, running on hundreds of screens around the world.</li>
+<li>Made a kiosk log in, check its licence and fetch its setup file from the web admin, against a mocked identity service, so the installer no longer copies that file.</li>
+<li>Fixed the app not starting after an install that also installed WebView2, made the installer always create a desktop shortcut, and put the product's name, publisher and icon on the exe.</li>
+<li>Stated the Windows and PC requirements for kiosks in the install guide.</li>
 </ul>
 <h2>Decisions</h2>
 <section class="decision">
@@ -62,16 +71,16 @@
 <h3>Sign by hand, verify in the job</h3>
 <p>The release job pauses for signing, then refuses a file that is not validly signed, timestamped and issued to the exact name. The checksum is taken after signing and the hub must serve the same value. Automatic selection once picked the wrong certificate, so the procedure now signs by name.</p>
 </section>
-<h2>Trade-offs</h2>
-<ul>
-<li>Online licensing stayed a prototype, postponed behind the release work.</li>
-<li>Release steps remain partly manual, with a hand copy to the hub and signing by hand, because nothing on the build host could write to the hub.</li>
-</ul>
-<h2>What I'd change</h2>
-<ul>
-<li>Test the kiosk gestures on an installed build from the start: the exit gesture was dead on one page of an installed release.</li>
-<li>Add a customer setting only when something needs it: I later removed six nobody used, where a bad value could stop the app.</li>
-</ul>
+<p class="next">Part of <a href="../projects/spark-digital-showroom.html">Spark Digital Showroom</a></p>
+</div>
+</div>
 </main>
+<footer>
+<ul>
+<li><a href="mailto:sjogrenandreas@live.se">Email</a></li>
+<li><a href="https://github.com/Edes0">GitHub</a></li>
+<li><a href="../cv.pdf">CV</a></li>
+</ul>
+</footer>
 </body>
 </html>

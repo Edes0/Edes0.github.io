@@ -1,29 +1,26 @@
-/* Pane: mono-led UI furniture, dense rows instead of cards, the terminal's glyph vocabulary, violet accent; neutral
-   ink on near-black or off-white (owner's pick, portfolio-site spec task 10). */
+/* B1 Clean: a bold name, a calm neutral palette with one blue accent, a grid of large-media cards, and project pages
+   with media beside a panel of lead line and facts (owner's pick, specs/2026-11-03-visual-system). */
 :root {
   color-scheme: light dark;
-  --bg: light-dark(oklch(98.5% 0.003 290), oklch(17% 0.008 290));
-  --raise: light-dark(oklch(95.5% 0.008 290), oklch(21% 0.012 290));
-  --ink: light-dark(oklch(23% 0.01 290), oklch(92% 0.008 290));
-  --muted: light-dark(oklch(48% 0.015 290), oklch(70% 0.015 290));
-  --rule: light-dark(oklch(89% 0.008 290), oklch(29% 0.012 290));
-  --accent: light-dark(oklch(50% 0.2 295), oklch(76% 0.14 300));
-  --tint: light-dark(oklch(92% 0.04 295), oklch(29% 0.06 295));
-  --text: system-ui, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
-  --step--1: clamp(0.8rem, 0.78rem + 0.1vw, 0.86rem);
-  --step-0: clamp(0.97rem, 0.94rem + 0.15vw, 1.05rem);
-  --step-1: clamp(1.1rem, 1.02rem + 0.35vw, 1.3rem);
-  --step-3: clamp(1.6rem, 1.3rem + 1.4vw, 2.3rem);
+  --bg: light-dark(#fff, oklch(16% .008 260));
+  --raise: light-dark(oklch(97% .003 260), oklch(20% .01 260));
+  --ink: light-dark(oklch(20% .012 260), oklch(96% .004 260));
+  --muted: light-dark(oklch(46% .015 260), oklch(72% .012 260));
+  --rule: light-dark(oklch(91% .004 260), oklch(28% .01 260));
+  --accent: light-dark(oklch(47% .16 255), oklch(76% .12 245));
+  --display: "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  --text: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
 }
 
-html {
-  scroll-padding-top: 3.5rem;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font: var(--step-0) / 1.55 var(--text);
+  font: 1.0625rem / 1.6 var(--text);
   color: var(--ink);
   background: var(--bg);
 }
@@ -32,6 +29,21 @@ a {
   color: var(--accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
+}
+
+/* Furniture links go without an underline until hovered; links in running text keep theirs. */
+header a,
+footer a,
+.featured h3 a,
+article.update > h2:first-child a {
+  text-decoration: none;
+}
+
+header a:hover,
+footer a:hover,
+.featured h3 a:hover,
+article.update > h2:first-child a:hover {
+  text-decoration: underline;
 }
 
 :focus-visible {
@@ -44,244 +56,260 @@ a {
   left: 1rem;
   top: -3rem;
   padding: 0.4rem 0.7rem;
-  font-family: var(--mono);
   background: var(--raise);
   border: 1px solid var(--accent);
+  border-radius: 6px;
 }
 
 .skip:focus {
   top: 0.5rem;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+.preview {
+  padding: 0.6rem 1rem;
   background: var(--raise);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 2px solid var(--accent);
+  font-size: 0.95rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 header ul {
   display: flex;
-  gap: 0.6rem;
-  max-width: 58rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  max-width: 70rem;
   margin: 0 auto;
-  padding: 0.55rem 1.25rem;
+  padding: 1.5rem;
   list-style: none;
-  font: var(--step--1) var(--mono);
+  font-weight: 500;
 }
 
 header li:first-child {
   margin-inline-end: auto;
-  font-weight: 700;
-}
-
-/* A separator between the section links, none after the site name. */
-header li:nth-child(n + 3)::before {
-  content: "·";
-  margin-inline-end: 0.6rem;
-  color: var(--muted);
+  font-weight: 650;
 }
 
 header a {
   color: var(--ink);
-  text-decoration: none;
-}
-
-header a:hover {
-  color: var(--accent);
-}
-
-main,
-footer {
-  max-width: 58rem;
-  margin: 0 auto;
-  padding: 0 1.25rem;
 }
 
 main {
-  padding-bottom: 4rem;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* Text is at most 42rem wide; the title, the card grid, tables, the timeline and a project top with media take the
+   whole 70rem. */
+main > * {
+  max-width: 42rem;
+}
+
+main > h1,
+main > section:has(.featured, table),
+main > .timeline,
+main > .project-top:has(> .hero) {
+  max-width: none;
 }
 
 h1,
 h2,
 h3 {
   text-wrap: balance;
-  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
-h1 {
-  margin: 2.25rem 0 0.75rem;
-  font: 700 var(--step-3) / 1.15 var(--mono);
-  letter-spacing: -0.03em;
-}
-
-main > h1 + p {
-  max-width: 62ch;
-  font-size: var(--step-1);
-}
-
-h2 {
-  margin: 2.5rem 0 0.75rem;
-  font: 700 var(--step-0) var(--mono);
-}
-
-h2::before {
-  content: "## ";
-  color: var(--accent);
-}
-
-h3 {
-  margin: 0;
-  font-size: var(--step-0);
-}
-
-p,
-li {
-  max-width: 65ch;
+p {
   text-wrap: pretty;
 }
 
-ul {
+h1 {
+  margin: 3.5rem 0 1.1rem;
+  font: 700 clamp(2.4rem, 1.8rem + 3vw, 3.9rem) / 1.05 var(--display);
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  margin: 3.5rem 0 0.75rem;
+  font: 650 1.5rem / 1.25 var(--display);
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  margin: 1.5rem 0 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+main ul {
   padding-left: 1.25rem;
 }
 
-main ul > li::marker {
-  content: "·  ";
-  color: var(--accent);
-  font-family: var(--mono);
+main li {
+  margin: 0.5rem 0;
 }
 
-time,
-.chip,
-dt,
-th,
-figcaption,
-.lane h3 {
-  font-family: var(--mono);
-  font-size: var(--step--1);
-}
-
-.chip {
-  white-space: nowrap;
+/* Home */
+.statement {
+  max-width: 46ch;
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
+  line-height: 1.45;
   color: var(--muted);
 }
 
-.chip > span {
-  display: inline-block;
-  width: 1.2ch;
-  font-weight: 700;
-  color: var(--accent);
+/* Featured projects: a grid of cards, 3 columns at 70rem, 1 on a phone. */
+.featured {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: 2.5rem 1.75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-/* Updates on a rail: a dot per entry, the date first, the entry under it. */
-article.update {
-  position: relative;
+.visually-hidden + .featured {
+  margin-top: 4rem;
+}
+
+.featured li {
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 0 0 1.25rem 1.5rem;
-  border-left: 1px solid var(--rule);
 }
 
-article.update::before {
-  content: "";
-  position: absolute;
-  left: -0.3rem;
-  top: 0.45rem;
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: var(--accent);
+.featured .media {
+  aspect-ratio: 16 / 9;
+  margin: 0 0 0.9rem;
+  overflow: hidden;
+  background: var(--raise);
+  border-radius: 10px;
 }
 
-article.update > * {
-  margin: 0 0 0.35rem;
+.featured h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
 }
 
-article.update > p:has(> time) {
-  order: -1;
+.featured h3 a {
+  color: var(--ink);
+}
+
+.featured p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+/* Project page: the panel of lead line and facts, beside the top image and the body from 52rem, above them below
+   that. */
+.project-top {
+  display: grid;
+  gap: 2rem 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.project-top > .body {
+  min-width: 0;
+  max-width: 42rem;
+}
+
+.panel {
+  font-size: 0.95rem;
+}
+
+.panel > p {
+  margin: 0 0 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.45;
   color: var(--muted);
 }
 
-article.update h3 a,
-article.card h3 a {
-  color: var(--ink);
-  text-decoration: none;
-}
-
-article.update h3 a:hover,
-article.card h3 a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-/* Featured projects as dense rows: title and status on one line, the lead under them. */
-article.card {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: 1rem;
-  padding: 0.75rem 0.75rem 0.85rem;
+.strip {
+  margin: 0;
   border-top: 1px solid var(--rule);
 }
 
-article.card:last-child {
+main > .strip {
+  margin: 1.5rem 0;
+}
+
+.strip div {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.5rem 0;
   border-bottom: 1px solid var(--rule);
 }
 
-article.card:hover {
-  background: var(--raise);
-}
-
-article.card > p {
-  margin: 0.2rem 0 0;
-}
-
-article.card > p:first-of-type {
-  grid-column: 2;
-  grid-row: 1;
-  margin: 0;
-  font: var(--step--1) var(--mono);
-  color: var(--muted);
-}
-
-article.card > p:nth-of-type(2) {
-  grid-column: 1 / -1;
-  color: var(--muted);
-}
-
-dl {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 0.2rem 1.5rem;
-  margin: 1rem 0 1.5rem;
-  padding: 0.75rem 1rem;
-  background: var(--raise);
-  border-radius: 6px;
-}
-
 dt {
-  padding-top: 0.12rem;
   color: var(--muted);
-}
-
-dt::after {
-  content: ":";
 }
 
 dd {
   margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* The top image of every project page: its Hero; with none, its pictures' placeholders, else one with the title. */
+.hero {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  margin: 0;
+}
+
+.hero figure.placeholder {
+  margin: 0;
+}
+
+@media (min-width: 52rem) {
+  .project-top:has(> .hero) {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+  }
+
+  /* The panel spans both rows, and the second row takes its extra height, so a panel taller than the top image
+     leaves no gap under it: the body starts there. */
+  .project-top:has(> .hero) {
+    grid-template-rows: auto 1fr;
+  }
+
+  .project-top:has(> .hero) > .panel {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .project-top > .hero {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .project-top > .body {
+    grid-column: 1;
+    grid-row: 2;
+  }
 }
 
 figure.placeholder {
   display: grid;
   place-items: center;
   aspect-ratio: 16 / 9;
-  max-width: 40rem;
-  margin: 0.75rem 0;
+  margin: 1.5rem 0;
   background: var(--raise);
   border: 1px solid var(--rule);
-  border-radius: 6px;
+  border-radius: 10px;
 }
 
 figure.placeholder figcaption {
@@ -291,28 +319,129 @@ figure.placeholder figcaption {
   color: var(--muted);
 }
 
-figure.placeholder figcaption::before {
-  content: "[ picture ] ";
-  color: var(--accent);
+/* A Picture with a file: a still, a clip or an inline diagram filling its column. A card's is cropped to the card's
+   16:9 box; a placeholder (`figure.placeholder.media` in a card) is not one of these. */
+figure.media:not(.placeholder) {
+  margin: 1.5rem 0;
 }
 
-section.decision {
-  margin: 0.75rem 0;
-  padding: 0.75rem 1rem;
+.hero figure.media:not(.placeholder) {
+  margin: 0;
+}
+
+figure.media:not(.placeholder) > img,
+figure.media:not(.placeholder) > video,
+figure.media:not(.placeholder) > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+figure.media:not(.placeholder) > svg {
+  color: var(--ink);
   background: var(--raise);
-  border-radius: 6px;
 }
 
-section.decision h3::before {
-  content: "Decided: ";
-  font-family: var(--mono);
-  color: var(--accent);
+figure.media:not(.placeholder) figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
 }
 
-section.decision p {
-  margin: 0.3rem 0 0;
+/* Outranks the 1.5rem above, so a card's picture starts level with the placeholder cards in its row. */
+.featured figure.media:not(.placeholder) {
+  margin: 0 0 0.9rem;
 }
 
+.featured figure.media:not(.placeholder) > img,
+.featured figure.media:not(.placeholder) > svg {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* About's slots: a portrait, then the free-time photos, until the media spec fills them. */
+figure.placeholder.portrait {
+  max-width: 16rem;
+  aspect-ratio: 4 / 5;
+}
+
+figure.placeholder.free-time {
+  aspect-ratio: 3 / 2;
+}
+
+/* Decisions and features: a bold heading and a muted paragraph, no card. */
+section.decision,
+section.feature {
+  margin: 1.5rem 0;
+}
+
+section.decision h3,
+section.feature h3 {
+  margin: 0 0 0.25rem;
+}
+
+section.decision p,
+section.feature p {
+  margin: 0;
+  color: var(--muted);
+}
+
+section.feature ul {
+  padding: 0;
+  list-style: none;
+}
+
+section.feature li {
+  margin: 0.35rem 0 0;
+}
+
+section.feature b {
+  font-weight: 650;
+}
+
+.next {
+  margin-top: 3rem;
+}
+
+/* Updates: the Now page's intro line, then the date above each title, ruled between entries. */
+.intro {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
+
+article.update {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+article.update > * {
+  margin: 0 0 0.35rem;
+}
+
+article.update > p:has(> time) {
+  order: -1;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* An update's title is an h2, the level under the page's h1, at the size of an h3. */
+article.update > h2:first-child {
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: normal;
+}
+
+article.update > h2:first-child a {
+  color: var(--ink);
+}
+
+/* Tables scroll inside their section, never the page. */
 section:has(> table) {
   overflow-x: auto;
 }
@@ -320,88 +449,127 @@ section:has(> table) {
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: var(--step--1);
+  font-size: 0.95rem;
 }
 
 th {
   text-align: left;
-  font-weight: 700;
+  font-weight: 650;
   color: var(--muted);
 }
 
 th,
 td {
-  padding: 0.35rem 1rem 0.35rem 0;
+  padding: 0.5rem 1rem 0.5rem 0;
   vertical-align: top;
   border-bottom: 1px solid var(--rule);
 }
 
-tbody tr:hover {
-  background: var(--raise);
-}
-
-td:first-child {
-  font-family: var(--mono);
+/* The timeline, the owner's pick B: a lane per role, a bar per project on a month track of --n columns under a year
+   axis, an open bar fading out at the right edge. Each title is an inline-block that wraps inside its lane. From
+   40rem it starts where its bar starts, but no later than 16rem from the right edge, and its period is read by the
+   axis (kept for screen readers); below that it sits at the left with its period. */
+.axis {
+  display: grid;
+  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  overflow: hidden;
+  padding-bottom: 0.2rem;
+  font-size: 0.8rem;
   color: var(--muted);
+  border-bottom: 1px solid var(--rule);
 }
 
-/* Swimlane: tinted blocks, the label running on into the row. */
-.swimlane {
-  overflow-x: auto;
-  margin-bottom: 1.5rem;
+.axis span {
+  grid-row: 1;
+  padding-left: 0.35rem;
+  white-space: nowrap;
+  border-left: 1px solid var(--rule);
 }
 
 .lane h3 {
-  margin: 1rem 0 0.3rem;
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.95rem;
   color: var(--muted);
 }
 
-.lane h3::before {
-  content: "▸ ";
-  color: var(--accent);
+.lane h3 a {
+  color: inherit;
 }
 
 .lane ol {
-  display: grid;
-  grid-template-columns: repeat(var(--months), minmax(0.9rem, 1fr));
-  gap: 2px 0;
   margin: 0;
-  padding: 0 14rem 0 0;
+  padding: 0;
   list-style: none;
 }
 
-li.bar {
-  max-width: none;
-  padding: 0.05rem 0.5rem;
-  white-space: nowrap;
-  font: var(--step--1) var(--mono);
+.lane .bar {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+}
+
+.bar a {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.bar .period {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
   color: var(--muted);
-  background: var(--tint);
+  white-space: nowrap;
+}
+
+.bar::after {
+  content: "";
+  display: block;
+  width: calc((var(--e) - var(--s) + 1) / var(--n) * 100%);
+  min-width: 4px;
+  height: 0.55rem;
+  margin: 0.2rem 0 0 calc((var(--s) - 1) / var(--n) * 100%);
+  background: var(--accent);
   border-radius: 3px;
 }
 
-li.bar a {
-  font-family: var(--text);
-  color: var(--ink);
-  text-decoration: none;
+.bar.open::after {
+  border-radius: 3px 0 0 3px;
+  background: linear-gradient(to right, var(--accent) 75%, transparent);
+}
+
+@media (min-width: 40rem) {
+  .bar {
+    --at: clamp(0px, (var(--s) - 1) / var(--n) * 100%, 100% - 16rem);
+  }
+
+  .bar a {
+    max-width: calc(100% - var(--at));
+    margin-left: var(--at);
+  }
+
+  .bar .period {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
 }
 
 footer ul {
   display: flex;
-  gap: 1.5rem;
-  padding: 1.25rem 0 3rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  max-width: 70rem;
+  margin: 4rem auto 0;
+  padding: 2rem 1.5rem;
   list-style: none;
-  border-top: 1px solid var(--rule);
-  font: var(--step--1) var(--mono);
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   @view-transition {
     navigation: auto;
-  }
-
-  article.card {
-    transition: background-color 120ms ease-out;
   }
 }
 
@@ -416,9 +584,8 @@ footer ul {
     display: none;
   }
 
-  body {
-    color: oklch(15% 0 0);
-    background: white;
+  .project-top {
+    display: block;
   }
 
   a[href^="http"]::after {

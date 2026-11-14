@@ -4,45 +4,61 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Spark Digital Showroom: web front end · Andreas Sjögren</title>
-<meta name="description" content="Spark Digital Showroom: web front end">
+<meta name="description" content="The React front end shoppers use in about 95 production room-configurator apps, on retailers&#x27; websites and in-store screens.">
 <link rel="canonical" href="https://edes0.github.io/projects/showroom-web.html">
 <meta property="og:url" content="https://edes0.github.io/projects/showroom-web.html">
 <meta property="og:title" content="Spark Digital Showroom: web front end · Andreas Sjögren">
-<meta property="og:description" content="Spark Digital Showroom: web front end">
+<meta property="og:description" content="The React front end shoppers use in about 95 production room-configurator apps, on retailers&#x27; websites and in-store screens.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../style.css">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../now.html">Now</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li></ul></nav></header>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li><li><a href="../now.html">Now</a></li><li><a href="../about.html#contact">Contact</a></li></ul></nav></header>
 <main id="main">
 <h1>Spark Digital Showroom: web front end</h1>
-<dl>
-<dt>Period</dt><dd>2023-10 – present</dd>
-<dt>Kind</dt><dd>professional</dd>
-<dt>Status</dt><dd><span class="chip"><span aria-hidden="true">·</span> active</span></dd>
-<dt>Tech</dt><dd>TypeScript, React, Playwright</dd>
-<dt>Tags</dt><dd>frontend, configurator, e-commerce, GDPR</dd>
-<dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
+<div class="project-top">
+<div class="panel">
+<p>The React front end shoppers use in about 95 production room-configurator apps, on retailers' websites and in-store screens.</p>
+<dl class="strip">
+<div><dt>Period</dt><dd>2023-08 – present</dd></div>
+<div><dt>My role</dt><dd>Sole developer</dd></div>
+<div><dt>Team</dt><dd>Alone</dd></div>
+<div><dt>Status</dt><dd>Active</dd></div>
+<div><dt>Built with</dt><dd>TypeScript, React, Playwright</dd></div>
+<div><dt>Made at</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd></div>
+<div><dt>Part of</dt><dd><a href="../projects/spark-digital-showroom.html">Spark Digital Showroom</a></dd></div>
 </dl>
+</div>
+<div class="hero">
+<figure class="placeholder">
+<figcaption>Spark Digital Showroom: web front end</figcaption>
+</figure>
+</div>
+<div class="body">
 <h2>Summary</h2>
-<p>The web front end of Spark Digital Showroom, SparkVision's room configurator, and the shopper-facing side of its rendering and API backend: a shopper picks a room, applies tiles, floors and furniture, and leaves with a summary sent to a shop or by mail.</p>
+<p>The web front end of Spark Digital Showroom: a shopper picks a room, applies tiles, floors and furniture, and leaves with a summary sent to a shop or by mail. The features that span the backend and this front end are on the Spark Digital Showroom page; this page holds the rest of the front-end work.</p>
 <h2>What I did</h2>
 <ul>
-<li>Added front-end support for new tile patterns and shapes: offset patterns, hexagons and triangles, and later rotation at any angle and a grout-thickness slider.</li>
+<li>Added front-end support for new tile patterns and shapes: offset patterns, hexagons and triangles.</li>
 <li>Added Google Tag Manager tracking and mail-consent checkboxes, and made consent texts follow the active account with their own section for each summary exit.</li>
-<li>Built the summary exits: mailing the summary and PDF to the shopper from the exit cards, a lead-capture mode, a Send in Shop card with a searchable salesperson list, and showing where the summary copy went.</li>
+<li>Maintained the model selector, where a shopper picks the room, while it was its own app: fixed lost translations, added the account id to configuration file names to match the configurator, added Google Tag Manager support, and made products depend on the shopper's market.</li>
 <li>Merged the model selector into the front end.</li>
-<li>Built the phone remote-control flow for in-store displays.</li>
 <li>Built the Bring Your Own Room screens: the add-your-room card and modal, a loading view for the shopper's room, hover states on surfaces and an apply-to-all row.</li>
 <li>Introduced Playwright end-to-end tests, including cross-browser runs that caught a Firefox bug, and automated how new tests are created.</li>
-<li>Added an agent guide, a glossary and a gotchas log to the repository.</li>
+<li>Pinned what one customer's room display reads from the summary page in a contract test, and made Jenkins run the unit tests.</li>
 </ul>
-<h2>Outcomes</h2>
-<ul>
-<li>The front end serves about 95 production showroom apps, about 70 of them with outside traffic in a given month.</li>
-</ul>
+<p class="next">Part of <a href="../projects/spark-digital-showroom.html">Spark Digital Showroom</a></p>
+</div>
+</div>
 </main>
+<footer>
+<ul>
+<li><a href="mailto:sjogrenandreas@live.se">Email</a></li>
+<li><a href="https://github.com/Edes0">GitHub</a></li>
+<li><a href="../cv.pdf">CV</a></li>
+</ul>
+</footer>
 </body>
 </html>

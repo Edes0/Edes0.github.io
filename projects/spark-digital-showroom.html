@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spark Digital Showroom · Andreas Sjögren</title>
+<meta name="description" content="A room configurator that runs as about 95 production apps for tile, bathroom and floor sellers. I have built and run it alone since 2023.">
+<link rel="canonical" href="https://edes0.github.io/projects/spark-digital-showroom.html">
+<meta property="og:url" content="https://edes0.github.io/projects/spark-digital-showroom.html">
+<meta property="og:title" content="Spark Digital Showroom · Andreas Sjögren">
+<meta property="og:description" content="A room configurator that runs as about 95 production apps for tile, bathroom and floor sellers. I have built and run it alone since 2023.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://edes0.github.io/og/projects-spark-digital-showroom.png">
+<meta property="og:image:alt" content="The configurator on a demo setup: a wall&#x27;s tiles are laid in herringbone and turned 45 degrees, a dark grout is picked and applied to every wall, and the room re-renders after each step">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li><li><a href="../now.html">Now</a></li><li><a href="../about.html#contact">Contact</a></li></ul></nav></header>
+<main id="main">
+<h1>Spark Digital Showroom</h1>
+<div class="project-top">
+<div class="panel">
+<p>A room configurator that runs as about 95 production apps for tile, bathroom and floor sellers. I have built and run it alone since 2023.</p>
+<dl class="strip">
+<div><dt>Period</dt><dd>2023-08 – present</dd></div>
+<div><dt>My role</dt><dd>Sole developer, from rendering backend to web front end and desktop app</dd></div>
+<div><dt>Team</dt><dd>Alone; an experienced colleague reviews sensitive or architectural changes</dd></div>
+<div><dt>Result</dt><dd>About 95 production showroom apps run on it, about 70 of them with outside traffic in a given month.</dd></div>
+<div><dt>Status</dt><dd>Active</dd></div>
+<div><dt>Built with</dt><dd>C#, .NET, ASP.NET, TypeScript, React, WPF, Redis, Playwright, Jenkins</dd></div>
+<div><dt>Made at</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd></div>
+<div><dt>Parts</dt><dd><a href="../projects/customer-web-admin.html">Customer web admin</a>, <a href="../projects/deploy-service-v2.html">Deploy service v2</a>, <a href="../projects/room-photo-segmentation.html">Room-photo surface segmentation service</a>, <a href="../projects/server-watchdog.html">Server application watchdog</a>, <a href="../projects/showroom-desktop-v2.html">Spark Digital Showroom desktop v2: WPF rewrite</a>, <a href="../projects/showroom-desktop.html">Spark Digital Showroom: desktop app and updater</a>, <a href="../projects/showroom-backend.html">Spark Digital Showroom: rendering and API backend</a>, <a href="../projects/showroom-web.html">Spark Digital Showroom: web front end</a></dd></div>
+</dl>
+</div>
+<div class="hero">
+<figure class="media">
+<video controls muted playsinline preload="none" poster="../media/projects-spark-digital-showroom/configure.poster.webp" width="1280" height="720">
+<source src="../media/projects-spark-digital-showroom/configure.webm" type="video/webm">
+<source src="../media/projects-spark-digital-showroom/configure.mp4" type="video/mp4">
+</video>
+<figcaption>The configurator on a demo setup: a wall&#x27;s tiles are laid in herringbone and turned 45 degrees, a dark grout is picked and applied to every wall, and the room re-renders after each step</figcaption>
+</figure>
+</div>
+<div class="body">
+<figure class="media">
+<img src="../media/projects-spark-digital-showroom/kitchen.webp" srcset="../media/projects-spark-digital-showroom/kitchen-800.webp 800w, ../media/projects-spark-digital-showroom/kitchen.webp 1600w" sizes="(min-width: 52rem) 45rem, 100vw" width="1600" height="900" loading="lazy" alt="A kitchen scene in the configurator, with one row for each surface a shopper can change">
+</figure>
+<h2>Summary</h2>
+<p>SparkVision's room configurator. Tile, bathroom and floor retailers and manufacturers run it on their websites and on in-store screens, so a shopper can see products in a room before buying and leave with something a shop can act on: a summary, a PDF, a mail or an order. It is one environment of several parts: a .NET rendering and API backend, a React web front end, a Windows kiosk app, and the services that deploy and watch them. Each part has its own page; this page holds the product, its features and the decisions that span it.</p>
+<h2>How agents were used</h2>
+<ul>
+<li>Since April 2026 agents wrote most of the code. I cut the work into slices, made the design decisions and reviewed every pull request.</li>
+<li>Since 2026 the rotation and grout epics were mapped as research and decision tickets, then cut into slices, each labelled for an agent or for a human.</li>
+<li>After attending a workshop on Claude Code, I brought its workflows into the backend repository, then agent guides and a glossary into both repositories.</li>
+</ul>
+<h2>What I did</h2>
+<ul>
+<li>Worked on these applications alone from the start. In my first year an experienced colleague reviewed much of my work; since then I have been responsible for all of them, and bring that colleague in only for sensitive systems or larger architectural changes.</li>
+<li>Reviewed colleagues' pull requests to the backend throughout, from image composition to cache budgets.</li>
+<li>Built a shared Claude Code workspace that six people in three departments use.</li>
+<li>Extended the rendering with new wood patterns, hexagon and triangle tiles, and a new rectangle render that replaced the old one in every showroom.</li>
+<li>Built the summary exits a shopper leaves with: mail, PDF, lead capture and a Send in Shop card with a salesperson list.</li>
+<li>Rewrote the Windows kiosk app from scratch as a WPF shell around the web configurator, with a signed release flow.</li>
+<li>Automated the watchdog that restarts a failing app on the production servers, and am building a new deploy service so the team no longer logs in over remote desktop to deploy, pause or restart an app.</li>
+</ul>
+<h2>Features</h2>
+<section class="feature">
+<h3>Bring Your Own Room</h3>
+<p>A shopper uploads a photo of their own room, the surfaces in it are found, and they apply tiles and floors to them as in a catalog room, then leave with the same summary, PDF, mail or order.</p>
+<ul>
+<li><b>Mine:</b> I planned the epic and cut it into spikes and slices, built the backend seam, the asynchronous job machinery and the photo render service, moved segmentation to the render node, and built the add-your-room screens.</li>
+<li><b>Others:</b> a colleague built the segmentation model that finds the surfaces, and another team owns the renderer that draws the products on them.</li>
+</ul>
+</section>
+<section class="feature">
+<h3>Phone remote by QR code</h3>
+<p>On an in-store screen, a shopper scans a QR code and their phone becomes the remote: they choose a surface, scan products in the shop to apply them, and the session ends after a period without use.</p>
+<figure class="media">
+<img src="../media/projects-spark-digital-showroom/remote.webp" srcset="../media/projects-spark-digital-showroom/remote-800.webp 800w, ../media/projects-spark-digital-showroom/remote.webp 1600w" sizes="(min-width: 52rem) 45rem, 100vw" width="1600" height="728" loading="lazy" alt="The phone remote&#x27;s start page beside the screen it controls; two captures placed side by side">
+</figure>
+<ul>
+<li><b>Mine:</b> I built it from the first demo, through pairing and scanning in the backend and the phone flow in the front end, to the kiosk's idle timer.</li>
+</ul>
+</section>
+<section class="feature">
+<h3>Tile rotation at any angle</h3>
+<p>A shopper turns the tiles or wood floor on a surface to any angle from the Pattern popup, and the room re-renders. The angle stays through product changes, shared links and saved rooms.</p>
+<ul>
+<li><b>Mine:</b> I settled the open questions as decision tickets, then built the rendering, the API, the links and the control.</li>
+<li><b>Others:</b> another team owns the renderer that draws the turned tiles.</li>
+</ul>
+</section>
+<section class="feature">
+<h3>Grout thickness</h3>
+<p>A shopper sets the grout thickness of each tile surface with a slider. The render, shared links, saved rooms, the summary, the PDF, the mail and the order all carry it.</p>
+<figure class="media">
+<img src="../media/projects-spark-digital-showroom/grout.webp" srcset="../media/projects-spark-digital-showroom/grout-800.webp 800w, ../media/projects-spark-digital-showroom/grout.webp 1600w" sizes="(min-width: 52rem) 45rem, 100vw" width="1600" height="900" loading="lazy" alt="The grout panel beside the rendered bathroom, with the thickness slider and the grout colours">
+</figure>
+<ul>
+<li><b>Mine:</b> I researched how pre-rendered tile images could honour a chosen thickness, then built it from the backend to the order and the slider.</li>
+<li><b>Others:</b> another team owns the renderer that draws the grout.</li>
+</ul>
+</section>
+<h2>Outcomes</h2>
+<ul>
+<li>About 95 production showroom apps run on it, about 70 of them with outside traffic in a given month.</li>
+<li>The rewritten kiosk app was, as of October 2026, about to reach 50 customers and hundreds of screens.</li>
+<li>All four features are live: Bring Your Own Room, the phone remote, tile rotation and grout thickness.</li>
+</ul>
+<h2>Decisions</h2>
+<section class="decision">
+<h3>An on-demand, content-addressed summary PDF</h3>
+<p>A summary PDF is now generated when asked for and cached by its configuration and render parameters, so a link already sent keeps resolving. For photographed rooms I rejected keying on the session, which would serve a stale PDF after a tile change.</p>
+</section>
+<section class="decision">
+<h3>Prices resolved at request time</h3>
+<p>Looking prices up at load time by the bare retailer id could not match templated Display IDs, so those products had no price. A new provider resolves the price by the final Display ID when the request comes in, and the summary, PDF and mail inherit it. Disabling a product by its Display ID stayed out of scope, a known limitation.</p>
+</section>
+<section class="decision">
+<h3>Segmentation moved to the render node</h3>
+<p>Room-photo segmentation first moved to the render node as an opt-in mode. I deliberately kept its reachability out of the boot check, because an unreachable node would otherwise take a site down. Later the node became the only processor, and a retired mode now fails boot with a message that names the fix. The cost: renders from the node differ from the local pipeline's, which I accepted over maintaining a second copy of the options.</p>
+</section>
+<section class="decision">
+<h3>A photographed room behaves like a catalog room</h3>
+<p>Shops already handle orders in one shape, so orders from a photographed room keep it and nothing downstream changes. Restoring a saved room takes a snapshot, not an overlay, because treating a missing value as "skip" produced mixed rooms. The cost: a mailed link resolves only while its room does, and how long a room stays reachable is still open.</p>
+</section>
+<p class="next">Next: <a href="../projects/autonomy.html">Autonomy</a></p>
+</div>
+</div>
+</main>
+<footer>
+<ul>
+<li><a href="mailto:sjogrenandreas@live.se">Email</a></li>
+<li><a href="https://github.com/Edes0">GitHub</a></li>
+<li><a href="../cv.pdf">CV</a></li>
+</ul>
+</footer>
+</body>
+</html>

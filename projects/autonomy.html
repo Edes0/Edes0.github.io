@@ -10,31 +10,57 @@
 <meta property="og:title" content="Autonomy · Andreas Sjögren">
 <meta property="og:description" content="A programmable idle game: players write bots that run around the clock in one shared world. Pre-alpha, over 200 specs, built solo.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://edes0.github.io/og/projects-autonomy.png">
+<meta property="og:image:alt" content="From the second devlog: an assembly platform builds a unit part by part, and the unit walks off under its own light">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../style.css">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../now.html">Now</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li></ul></nav></header>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li><li><a href="../now.html">Now</a></li><li><a href="../about.html#contact">Contact</a></li></ul></nav></header>
 <main id="main">
 <h1>Autonomy</h1>
-<dl>
-<dt>Period</dt><dd>2025-11 – present</dd>
-<dt>Kind</dt><dd>independent</dd>
-<dt>Status</dt><dd><span class="chip"><span aria-hidden="true">·</span> active</span></dd>
-<dt>Tech</dt><dd>C#, .NET 10, ASP.NET Core, EF Core, Docker, Godot, WebSockets, GitHub Actions</dd>
-<dt>Tags</dt><dd>game development, sandboxing, AI agents</dd>
-</dl>
+<div class="project-top">
+<div class="panel">
 <p>A programmable idle game: players write bots that run around the clock in one shared world. Pre-alpha, over 200 specs, built solo.</p>
+<dl class="strip">
+<div><dt>Period</dt><dd>2025-11 – present</dd></div>
+<div><dt>My role</dt><dd>Sole developer, from game server and bot sandbox to the Godot client</dd></div>
+<div><dt>Team</dt><dd>Alone</dd></div>
+<div><dt>Result</dt><dd>Pre-alpha, with no public world yet. The next goal is a closed demo for 10 to 30 invited players on one hosted world.</dd></div>
+<div><dt>Status</dt><dd>Active</dd></div>
+<div><dt>Built with</dt><dd>C#, .NET 10, ASP.NET Core, EF Core, Docker, Godot, WebSockets, GitHub Actions</dd></div>
+<div><dt>Made at</dt><dd>Independent</dd></div>
+<div><dt>Links</dt><dd><a href="https://github.com/Edes0/programmable-bot-game">Write-up on GitHub</a></dd></div>
+</dl>
+</div>
+<div class="hero">
+<figure class="media">
+<video controls muted playsinline preload="none" poster="../media/projects-autonomy/assembly.poster.webp" width="1280" height="720">
+<source src="../media/projects-autonomy/assembly.webm" type="video/webm">
+<source src="../media/projects-autonomy/assembly.mp4" type="video/mp4">
+</video>
+<figcaption>From the second devlog: an assembly platform builds a unit part by part, and the unit walks off under its own light</figcaption>
+</figure>
+</div>
+<div class="body">
 <h2>Summary</h2>
 <p>A game I am building to launch. A player writes a bot, by hand or with an AI assistant, and it plays on its own in one shared online world while they watch and tweak it. Its closest references are Screeps, for the persistent world, and Battlecode, for bot matches.</p>
-<p>AI-assisted: coding agents write much of the code under checks I set up. I make the design decisions and review every change.</p>
+<h2>How agents were used</h2>
+<ul>
+<li>Coding agents write much of the code, through my own agent harness: each feature runs from spec and plan to a reviewed, squash-merged pull request. I make the design decisions and review every change.</li>
+<li>Each change is checked by tests written red first and by CI over the server, the client, the language workers and Docker smoke tests.</li>
+<li>A repository guide gives agents the facts no linter catches, and every wrong assumption an agent makes is written down as a gotcha in the same turn.</li>
+<li>Stale comments calling rooms obsolete misled an agent and me into seriously weighing a removal across more than 120 files; a decision record now says what rooms are.</li>
+</ul>
 <h2>What I did</h2>
 <ul>
 <li>Built the game server in C# on .NET 10, where every bot acts once a second, with pathfinding across rooms, fog of war, economy, building and combat.</li>
 <li>Built the sandbox that runs each player's bot in its own Docker container with CPU and time limits.</li>
 <li>Built the Godot client, which only draws what the authoritative server sends.</li>
-<li>Run it spec-first: feature work starts as a spec and plan and lands as a reviewed pull request with tests.</li>
 </ul>
 <h2>Outcomes</h2>
 <ul>
@@ -61,18 +87,16 @@
 <h3>A bot lives in the player's own folder</h3>
 <p>A player's code lives in a local folder that the client creates and pushes, and the server never writes back. I rejected activating a starter on the server, which would need a hosted editor, and a folder inside the install, which an uninstall deletes. Git and the editor stay the player's own tools.</p>
 </section>
-<h2>Trade-offs</h2>
-<ul>
-<li>The tick is as slow as its slowest bot. Each bot is capped at 150 ms of CPU per tick to bound that.</li>
-<li>Watching from a browser is given up until a separate viewer exists, because Godot cannot export C# to the web.</li>
-<li>The server lists 24 languages, but only Python works end to end so far, and the client offers only languages that run.</li>
-</ul>
-<h2>What I'd change</h2>
-<ul>
-<li>Pick the client sooner, rather than building three.</li>
-<li>Get one language working end to end before listing the rest.</li>
-<li>Delete a wrong comment when it is written: stale comments calling rooms obsolete nearly led to a removal costed at over 120 files.</li>
-</ul>
+<p class="next">Next: <a href="../projects/team-workspace.html">Team workspace for agent-assisted development</a></p>
+</div>
+</div>
 </main>
+<footer>
+<ul>
+<li><a href="mailto:sjogrenandreas@live.se">Email</a></li>
+<li><a href="https://github.com/Edes0">GitHub</a></li>
+<li><a href="../cv.pdf">CV</a></li>
+</ul>
+</footer>
 </body>
 </html>

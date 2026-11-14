@@ -4,28 +4,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Customer web admin · Andreas Sjögren</title>
-<meta name="description" content="Customer web admin">
+<meta name="description" content="The web admin where customers and staff manage the configurator&#x27;s accounts, lists and consents, by my estimate hundreds of accounts.">
 <link rel="canonical" href="https://edes0.github.io/projects/customer-web-admin.html">
 <meta property="og:url" content="https://edes0.github.io/projects/customer-web-admin.html">
 <meta property="og:title" content="Customer web admin · Andreas Sjögren">
-<meta property="og:description" content="Customer web admin">
+<meta property="og:description" content="The web admin where customers and staff manage the configurator&#x27;s accounts, lists and consents, by my estimate hundreds of accounts.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../style.css">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../now.html">Now</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li></ul></nav></header>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li><li><a href="../now.html">Now</a></li><li><a href="../about.html#contact">Contact</a></li></ul></nav></header>
 <main id="main">
 <h1>Customer web admin</h1>
-<dl>
-<dt>Period</dt><dd>2025-04 – present</dd>
-<dt>Kind</dt><dd>professional</dd>
-<dt>Status</dt><dd><span class="chip"><span aria-hidden="true">·</span> active</span></dd>
-<dt>Tech</dt><dd>C#, .NET, ASP.NET, JavaScript, SCSS, NPOI</dd>
-<dt>Tags</dt><dd>backend, admin tools, GDPR</dd>
-<dt>Roles</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd>
+<div class="project-top">
+<div class="panel">
+<p>The web admin where customers and staff manage the configurator's accounts, lists and consents, by my estimate hundreds of accounts.</p>
+<dl class="strip">
+<div><dt>Period</dt><dd>2025-04 – present</dd></div>
+<div><dt>My role</dt><dd>Sole developer; leading the configuration migration into it alone</dd></div>
+<div><dt>Team</dt><dd>Alone; an experienced colleague reviews changes that touch sensitive systems</dd></div>
+<div><dt>Result</dt><dd>Holds, by my estimate, hundreds of customer accounts; one application can have several.</dd></div>
+<div><dt>Status</dt><dd>Active</dd></div>
+<div><dt>Built with</dt><dd>C#, .NET, ASP.NET, JavaScript, SCSS, NPOI</dd></div>
+<div><dt>Made at</dt><dd><a href="../roles/sparkvision.html">SparkVision</a></dd></div>
+<div><dt>Part of</dt><dd><a href="../projects/spark-digital-showroom.html">Spark Digital Showroom</a></dd></div>
 </dl>
+</div>
+<div class="hero">
+<figure class="placeholder">
+<figcaption>Customer web admin</figcaption>
+</figure>
+</div>
+<div class="body">
 <h2>Summary</h2>
 <p>The web admin where customer accounts, retailer and salesperson lists, consents and mail settings for the configurator are managed. Customers and SparkVision staff both use it, so those changes no longer need a developer or a deploy.</p>
 <h2>What I did</h2>
@@ -37,11 +49,22 @@
 <li>Removed unused product pages and normalised the repository's line endings.</li>
 <li>Added an agent guide, a glossary and a wrong-assumption log, and led an epic to keep them in every product repository.</li>
 <li>Leading, alone, the migration that moves customer configuration out of the backends into the web admin: opened the epic with decision tickets on ownership, scopes, languages and a security baseline.</li>
+<li>Built a kiosk tab where each account's kiosk setup file is stored and edited, and an endpoint that serves a kiosk its published file against an access token, with a mock identity service for local runs.</li>
 </ul>
 <h2>Outcomes</h2>
 <ul>
 <li>Holds, by my estimate, hundreds of customer accounts; one application can have several.</li>
 </ul>
+<p class="next">Part of <a href="../projects/spark-digital-showroom.html">Spark Digital Showroom</a></p>
+</div>
+</div>
 </main>
+<footer>
+<ul>
+<li><a href="mailto:sjogrenandreas@live.se">Email</a></li>
+<li><a href="https://github.com/Edes0">GitHub</a></li>
+<li><a href="../cv.pdf">CV</a></li>
+</ul>
+</footer>
 </body>
 </html>

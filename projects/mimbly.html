@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mimbly event backend · Andreas Sjögren</title>
+<meta name="description" content="The backend for Mimbly&#x27;s water-recycling dashboard, my first customer project: I built it alone and was the team&#x27;s contact with the customer.">
+<link rel="canonical" href="https://edes0.github.io/projects/mimbly.html">
+<meta property="og:url" content="https://edes0.github.io/projects/mimbly.html">
+<meta property="og:title" content="Mimbly event backend · Andreas Sjögren">
+<meta property="og:description" content="The backend for Mimbly&#x27;s water-recycling dashboard, my first customer project: I built it alone and was the team&#x27;s contact with the customer.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://edes0.github.io/og/projects-mimbly.png">
+<meta property="og:image:alt" content="Re-creation: the dashboard run locally on made-up data. My backend fed it; two teammates built this front end">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav><ul><li><a href="../index.html">Andreas Sjögren</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../about.html">About</a></li><li><a href="../now.html">Now</a></li><li><a href="../about.html#contact">Contact</a></li></ul></nav></header>
+<main id="main">
+<h1>Mimbly event backend</h1>
+<div class="project-top">
+<div class="panel">
+<p>The backend for Mimbly's water-recycling dashboard, my first customer project: I built it alone and was the team's contact with the customer.</p>
+<dl class="strip">
+<div><dt>Period</dt><dd>2022-11 – 2022-12</dd></div>
+<div><dt>My role</dt><dd>Backend developer, Scrum Master and the team&#x27;s contact with the customer</dd></div>
+<div><dt>Team</dt><dd>A FrontEdge IT team; two teammates built the dashboard front end</dd></div>
+<div><dt>Result</dt><dd>The dashboard front end, built by two teammates in Next.js and React, read the events the backend stored.</dd></div>
+<div><dt>Status</dt><dd>Handed over</dd></div>
+<div><dt>Built with</dt><dd>C#, .NET 6, Azure Functions, Dapper, SQL, FluentValidation</dd></div>
+<div><dt>Made at</dt><dd><a href="../roles/frontedge-it.html">FrontEdge IT</a></dd></div>
+</dl>
+</div>
+<div class="hero">
+<figure class="media">
+<img src="../media/projects-mimbly/dashboard.webp" srcset="../media/projects-mimbly/dashboard-800.webp 800w, ../media/projects-mimbly/dashboard.webp 1600w" sizes="(min-width: 52rem) 45rem, 100vw" width="1600" height="800" loading="lazy" alt="Re-creation: the dashboard run locally on made-up data. My backend fed it; two teammates built this front end">
+<figcaption>Re-creation: the dashboard run locally on made-up data. My backend fed it; two teammates built this front end</figcaption>
+</figure>
+</div>
+<div class="body">
+<h2>Summary</h2>
+<p>Mimbly makes units that recycle water for washing machines. FrontEdge IT built Mimboard 3.0 for them: a dashboard with views for admins, users and technicians, fed by events the units send. I built the backend that receives and stores those events, and I was the team's contact with the customer.</p>
+<h2>What I did</h2>
+<ul>
+<li>Built the backend alone: an Azure Functions app in C# on .NET 6 that receives every event a unit sends — water started and ended, water to the washing machine, errors — and stores it with Dapper in SQL as an event log, wash statistics and an error log.</li>
+<li>Was in direct contact with the customer, telling them what the team could deliver and keeping their expectations realistic.</li>
+<li>Acted as Scrum Master: prioritised the team's work and created the backlog and the scope of the MVP.</li>
+</ul>
+<h2>Outcomes</h2>
+<ul>
+<li>The dashboard front end, built by two teammates in Next.js and React, read the events the backend stored.</li>
+</ul>
+<h2>Decisions</h2>
+<section class="decision">
+<h3>One endpoint for every event</h3>
+<p>The units post every event to one address. The function reads the event's type and hands it to that type's model, so a new event type is one more case rather than a new function. The cost: adding a type means changing and redeploying the function that receives all the others.</p>
+</section>
+<section class="decision">
+<h3>Dapper and plain SQL</h3>
+<p>Each event is one plain insert, and Dapper with hand-written SQL kept those inserts visible and fast, with no mapping layer in between. The cost: every statement is written by hand and kept in step with the tables by hand.</p>
+</section>
+<section class="decision">
+<h3>Drop an incomplete event</h3>
+<p>An event with an empty field is logged as an error and dropped before anything is stored, so the event log and the wash statistics hold complete events only. The cost: a dropped event is gone. Only a log line remains, and the unit gets no reply saying it was dropped.</p>
+</section>
+<section class="decision">
+<h3>Cut what the events did not need</h3>
+<p>A week in, I redid the structure and removed entities and converters the backend did not need, so the code held only what the events needed.</p>
+</section>
+<p class="next">Next: <a href="../projects/spark-digital-showroom.html">Spark Digital Showroom</a></p>
+</div>
+</div>
+</main>
+<footer>
+<ul>
+<li><a href="mailto:sjogrenandreas@live.se">Email</a></li>
+<li><a href="https://github.com/Edes0">GitHub</a></li>
+<li><a href="../cv.pdf">CV</a></li>
+</ul>
+</footer>
+</body>
+</html>

@@ -1,24 +1,54 @@
 .nojekyll
 404.html
 about.html
+cv.pdf cbe45b5ffe20c859bd6d7858339fba1ca70270f9bf0eb2ab9aa71376747a9b22
 favicon.svg
 index.html
+media/projects-autonomy/assembly.mp4
+media/projects-autonomy/assembly.poster.webp
+media/projects-autonomy/assembly.webm
+media/projects-league-addon/overlay-800.webp
+media/projects-league-addon/overlay.webp
+media/projects-mimbly/dashboard-800.webp
+media/projects-mimbly/dashboard.webp
+media/projects-showroom-desktop-v2/kiosk-800.webp
+media/projects-showroom-desktop-v2/kiosk.webp
+media/projects-spark-digital-showroom/configure.mp4
+media/projects-spark-digital-showroom/configure.poster.webp
+media/projects-spark-digital-showroom/configure.webm
+media/projects-spark-digital-showroom/grout-800.webp
+media/projects-spark-digital-showroom/grout.webp
+media/projects-spark-digital-showroom/kitchen-800.webp
+media/projects-spark-digital-showroom/kitchen.webp
+media/projects-spark-digital-showroom/remote-800.webp
+media/projects-spark-digital-showroom/remote.webp
+media/updates-2026-10-31-autonomy-dev-update-2/assembly.mp4
+media/updates-2026-10-31-autonomy-dev-update-2/assembly.poster.webp
+media/updates-2026-10-31-autonomy-dev-update-2/assembly.webm
 now.html
+og/index.png d9c495a634cc09c01fd25b5001b161ddc12d36f0dd8c8104524fd1e4a930a692
+og/projects-agent-harness.png 8f4990dd7981cc79dfb081ae2f1e3e21f738092157f80fb819b0a03f8b3095df
+og/projects-autonomy.png a5120323e08eaa0b58bc46104733ca3f4b07603f0f1623f0b85ad2775560cd9a
+og/projects-mimbly.png 58bc56d1b7ac5025656d0ebaeaf9bc20ef72f7ef824ec01831aedf6ca4b726ac
+og/projects-spark-digital-showroom.png 0ecff3e5c2f98253fcc4b4698b7ad47477b128f40e03be847ee7e3a152a0c6d7
+og/projects-team-workspace.png 789ad0340ac08c220c15c7196c60d0968cf28466ca7c074753f82f44ec3706bd
 projects.html
 projects/agent-harness.html
 projects/ai-trader.html
 projects/autonomy.html
 projects/customer-web-admin.html
 projects/deploy-service-v2.html
+projects/jackon.html
 projects/league-addon.html
+projects/mimbly.html
 projects/poppers.html
 projects/room-photo-segmentation.html
 projects/server-watchdog.html
 projects/showroom-backend.html
 projects/showroom-desktop-v2.html
 projects/showroom-desktop.html
-projects/showroom-room-picker.html
 projects/showroom-web.html
+projects/spark-digital-showroom.html
 projects/team-workspace.html
 robots.txt
 roles/frontedge-it.html
@@ -27,5 +57,9 @@ sitemap.xml
 stories/code-to-harness.html
 stories/how-this-site-is-built.html
 style.css
+updates/2026-10-31-autonomy-dev-update-2.html
 updates/2026-11-03-autonomy-devlog-001.html
 updates/2026-11-03-site-rebuilt.html
+updates/2026-11-07-showroom-regrouped.html
+updates/2026-11-11-working-on.html
+updates/2026-11-13-autonomy-dev-update-3.html

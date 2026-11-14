@@ -10,82 +10,175 @@
 <meta property="og:title" content="Andreas Sjögren">
 <meta property="og:description" content="Software developer in Sweden. I build systems end to end: rendering backends, web and desktop apps, an AI agent harness, and Autonomy, a programmable game.">
 <meta property="og:type" content="profile">
+<meta property="og:image" content="https://edes0.github.io/og/index.png">
+<meta property="og:image:alt" content="Andreas Sjögren, Software developer">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Andreas Sjögren", "jobTitle": "Software developer", "url": "https://edes0.github.io", "sameAs": ["https://github.com/Edes0"]}}</script>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><nav><ul><li><a href="index.html">Andreas Sjögren</a></li><li><a href="now.html">Now</a></li><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li></ul></nav></header>
+<header><nav><ul><li><a href="index.html">Andreas Sjögren</a></li><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li><li><a href="now.html">Now</a></li><li><a href="about.html#contact">Contact</a></li></ul></nav></header>
 <main id="main">
 <h1>Andreas Sjögren</h1>
-<p>I am a software developer in Sweden. Since 2023 I have worked on Spark Digital Showroom, a room configurator, and since 2026 much of my work runs through AI coding agents and the harness I built around them.</p>
+<p class="statement">I build and own .NET production systems, and the agent tooling a team ships with. In production since 2022, from Sweden, and open to the right team.</p>
 <section>
-<h2>Updates</h2>
-<article class="update">
-<h3><a href="updates/2026-11-03-site-rebuilt.html">Site rebuilt around five projects</a></h3>
-<p><time datetime="2026-11-03">2026-11-03</time></p>
-<p>This site used to list every project at equal weight. It now leads with five, each with the decisions behind it, what I gave up and what I would change. The rest are in an archive table.</p>
-<p>There is also a Now page, and these updates. The story of how the site itself is built is on the About page.</p>
-</article>
-<article class="update">
-<h3><a href="updates/2026-11-03-autonomy-devlog-001.html">Autonomy devlog 001</a></h3>
-<p><time datetime="2026-11-03">2026-11-03</time></p>
-<p>The first numbered entry, and the first time I have written this up in public. Autonomy is a programmable idle game: you write a bot and it plays on its own in one shared world.</p>
-<h2>Shipped</h2>
-<ul>
-<li>Seeded biomes, so the world has three kinds of terrain.</li>
-<li>Colonies can be razed and repaired.</li>
-<li>Colonies spawn from the edge of the world and spread out by a seeded pick.</li>
-<li>The client loads the rooms around the camera and draws low-resolution tiles for the rest.</li>
-<li>The first phase of a hosted world: a proxy, backups and a way back.</li>
-</ul>
-<h2>Decided</h2>
-<ul>
-<li>Workers keep world state between ticks. Resending all terrain every tick came to about 2.8 MB per player on a larger world, and in a 30-bot run no player's tick met its deadline.</li>
-<li>A player's bot lives in a local folder that the client pushes, so git and the editor stay theirs.</li>
-<li>The game offers only languages that run. An audit found only Python works end to end out of the 24 the server lists.</li>
-</ul>
-<h2>Next</h2>
-<ul>
-<li>A closed demo for 10 to 30 invited players on one hosted world.</li>
-<li>More languages running end to end.</li>
-</ul>
-<p><a href="projects/autonomy.html">Autonomy</a></p>
-</article>
-</section>
-<section class="featured">
-<h2>Featured projects</h2>
-<article class="card">
+<h2 class="visually-hidden">Featured projects</h2>
+<ul class="featured">
+<li>
+<figure class="media">
+<img src="media/projects-spark-digital-showroom/configure.poster.webp" width="1280" height="720" loading="lazy" alt="The configurator on a demo setup: a wall&#x27;s tiles are laid in herringbone and turned 45 degrees, a dark grout is picked and applied to every wall, and the room re-renders after each step">
+</figure>
+<h3><a href="projects/spark-digital-showroom.html">Spark Digital Showroom</a></h3>
+<p>A room configurator that runs as about 95 production apps for tile, bathroom and floor sellers. I have built…</p>
+</li>
+<li>
+<figure class="media">
+<img src="media/projects-autonomy/assembly.poster.webp" width="1280" height="720" loading="lazy" alt="From the second devlog: an assembly platform builds a unit part by part, and the unit walks off under its own light">
+</figure>
 <h3><a href="projects/autonomy.html">Autonomy</a></h3>
-<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2025-11 – present</p>
-<p>A programmable idle game: players write bots that run around the clock in one shared world. Pre-alpha, over 200 specs, built solo.</p>
-</article>
-<article class="card">
-<h3><a href="projects/agent-harness.html">Claude Code agent harness</a></h3>
-<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2026-05 – present</p>
-<p>A versioned Claude Code setup that takes a feature from idea to merged pull request: about 40 skills, over 500 commits. I built it and use it daily.</p>
-</article>
-<article class="card">
-<h3><a href="projects/showroom-desktop-v2.html">Spark Digital Showroom desktop v2: WPF rewrite</a></h3>
-<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2026-05 – present</p>
-<p>A WPF rewrite of a Windows kiosk app, about to reach 50 customers and hundreds of screens. I built it from scratch.</p>
-</article>
-<article class="card">
+<p>A programmable idle game: players write bots that run around the clock in one shared world. Pre-alpha, over…</p>
+</li>
+<li>
+<figure class="media">
+<svg viewBox="0 0 1600 900" role="img" width="1600" height="900">
+  <title>Three robots, for development, content and support, all connected to one shared workspace of skills, repositories and a guard hook</title><g fill="none" stroke="currentColor" stroke-width="4">
+    <rect x="460" y="60" width="680" height="180" rx="28" />
+    <path d="M 325 400 L 325 320 L 1275 320 L 1275 400" opacity="0.6" />
+    <line x1="800" y1="240" x2="800" y2="400" opacity="0.6" />
+  </g>
+  <g fill="currentColor" stroke="none" font-size="44" text-anchor="middle">
+    <text x="800" y="136">Shared workspace</text>
+    <text x="800" y="200" opacity="0.7">skills, repos, guard hook</text>
+    <text x="325" y="860">Development</text>
+    <text x="800" y="860">Content</text>
+    <text x="1275" y="860">Support</text>
+  </g>
+  <g transform="translate(200 400) scale(1.25)" stroke-linecap="round">
+    <line x1="100" y1="20" x2="100" y2="42" stroke="currentColor" stroke-width="5" />
+    <circle cx="100" cy="12" r="10" fill="#d97757" />
+    <rect x="20" y="40" width="160" height="120" rx="34" fill="#d97757" />
+    <circle cx="70" cy="98" r="15" fill="#ffffff" />
+    <circle cx="130" cy="98" r="15" fill="#ffffff" />
+    <circle cx="73" cy="100" r="6" fill="#1b1f27" />
+    <circle cx="133" cy="100" r="6" fill="#1b1f27" />
+    <path d="M 80 126 Q 100 148 120 126" fill="none" stroke="#1b1f27" stroke-width="5" />
+    <rect x="86" y="160" width="28" height="14" fill="currentColor" opacity="0.5" />
+    <rect x="40" y="174" width="120" height="96" rx="24" fill="none" stroke="currentColor" stroke-width="5" />
+    <circle cx="100" cy="222" r="12" fill="#d97757" />
+    <line x1="40" y1="200" x2="12" y2="238" stroke="currentColor" stroke-width="5" />
+    <line x1="160" y1="200" x2="198" y2="160" stroke="currentColor" stroke-width="5" />
+    <line x1="78" y1="270" x2="78" y2="298" stroke="currentColor" stroke-width="5" />
+    <line x1="122" y1="270" x2="122" y2="298" stroke="currentColor" stroke-width="5" />
+  </g>
+  <g transform="translate(675 372) scale(1.25)" stroke-linecap="round">
+    <line x1="100" y1="20" x2="100" y2="42" stroke="currentColor" stroke-width="5" />
+    <circle cx="100" cy="12" r="10" fill="#6a9bcc" />
+    <rect x="20" y="40" width="160" height="120" rx="34" fill="#6a9bcc" />
+    <circle cx="70" cy="98" r="15" fill="#ffffff" />
+    <circle cx="130" cy="98" r="15" fill="#ffffff" />
+    <circle cx="70" cy="100" r="6" fill="#1b1f27" />
+    <circle cx="130" cy="100" r="6" fill="#1b1f27" />
+    <path d="M 80 126 Q 100 148 120 126" fill="none" stroke="#1b1f27" stroke-width="5" />
+    <rect x="86" y="160" width="28" height="14" fill="currentColor" opacity="0.5" />
+    <rect x="40" y="174" width="120" height="96" rx="24" fill="none" stroke="currentColor" stroke-width="5" />
+    <circle cx="100" cy="222" r="12" fill="#6a9bcc" />
+    <line x1="40" y1="200" x2="6" y2="166" stroke="currentColor" stroke-width="5" />
+    <line x1="160" y1="200" x2="194" y2="166" stroke="currentColor" stroke-width="5" />
+    <line x1="78" y1="270" x2="62" y2="296" stroke="currentColor" stroke-width="5" />
+    <line x1="122" y1="270" x2="138" y2="296" stroke="currentColor" stroke-width="5" />
+  </g>
+  <g transform="translate(1150 400) scale(1.25)" stroke-linecap="round">
+    <line x1="100" y1="20" x2="100" y2="42" stroke="currentColor" stroke-width="5" />
+    <circle cx="100" cy="12" r="10" fill="#788c5d" />
+    <rect x="20" y="40" width="160" height="120" rx="34" fill="#788c5d" />
+    <circle cx="70" cy="98" r="15" fill="#ffffff" />
+    <circle cx="130" cy="98" r="15" fill="#ffffff" />
+    <circle cx="67" cy="100" r="6" fill="#1b1f27" />
+    <circle cx="127" cy="100" r="6" fill="#1b1f27" />
+    <path d="M 80 126 Q 100 148 120 126" fill="none" stroke="#1b1f27" stroke-width="5" />
+    <rect x="86" y="160" width="28" height="14" fill="currentColor" opacity="0.5" />
+    <rect x="40" y="174" width="120" height="96" rx="24" fill="none" stroke="currentColor" stroke-width="5" />
+    <circle cx="100" cy="222" r="12" fill="#788c5d" />
+    <path d="M 40 200 L 14 222 L 40 244" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" />
+    <path d="M 160 200 L 186 222 L 160 244" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" />
+    <line x1="78" y1="270" x2="78" y2="298" stroke="currentColor" stroke-width="5" />
+    <line x1="122" y1="270" x2="122" y2="298" stroke="currentColor" stroke-width="5" />
+  </g>
+</svg>
+</figure>
 <h3><a href="projects/team-workspace.html">Team workspace for agent-assisted development</a></h3>
-<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2026-09 – present</p>
-<p>A shared Claude Code workspace used by six people in three departments. I started it alone, on my own initiative, and built it.</p>
-</article>
-<article class="card">
-<h3><a href="projects/showroom-backend.html">Spark Digital Showroom: rendering and API backend</a></h3>
-<p><span class="chip"><span aria-hidden="true">·</span> active</span> 2023-08 – present</p>
-<p>The .NET backend behind about 95 production room-configurator apps. I have worked on it since my first month, on rendering, pricing and orders.</p>
-</article>
+<p>A shared Claude Code workspace for colleagues in development, content and support. I started it alone, on my…</p>
+</li>
+<li>
+<figure class="media">
+<svg viewBox="0 0 1600 900" role="img" width="1600" height="900">
+  <title>A robot working down a track from spec and plan, through tests and a capped review loop, to a merged pull request, under a guard hook</title><g transform="translate(120 150) scale(2)" stroke-linecap="round">
+    <line x1="100" y1="20" x2="100" y2="42" stroke="currentColor" stroke-width="5" />
+    <circle cx="100" cy="12" r="10" fill="#d97757" />
+    <rect x="20" y="40" width="160" height="120" rx="34" fill="#d97757" />
+    <circle cx="70" cy="98" r="15" fill="#ffffff" />
+    <circle cx="130" cy="98" r="15" fill="#ffffff" />
+    <circle cx="73" cy="100" r="6" fill="#1b1f27" />
+    <circle cx="133" cy="100" r="6" fill="#1b1f27" />
+    <path d="M 80 126 Q 100 148 120 126" fill="none" stroke="#1b1f27" stroke-width="5" />
+    <rect x="86" y="160" width="28" height="14" fill="currentColor" opacity="0.5" />
+    <rect x="40" y="174" width="120" height="96" rx="24" fill="none" stroke="currentColor" stroke-width="5" />
+    <circle cx="100" cy="222" r="12" fill="#d97757" />
+    <path d="M 40 200 L 14 222 L 40 244" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" />
+    <line x1="160" y1="200" x2="206" y2="176" stroke="currentColor" stroke-width="5" />
+    <line x1="78" y1="270" x2="78" y2="298" stroke="currentColor" stroke-width="5" />
+    <line x1="122" y1="270" x2="122" y2="298" stroke="currentColor" stroke-width="5" />
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="4">
+    <line x1="740" y1="165" x2="740" y2="615" opacity="0.5" />
+    <rect x="820" y="110" width="500" height="110" rx="55" />
+    <rect x="820" y="260" width="500" height="110" rx="55" />
+    <rect x="820" y="410" width="500" height="110" rx="55" />
+    <rect x="820" y="560" width="500" height="110" rx="55" stroke="#788c5d" />
+    <line x1="640" y1="760" x2="1540" y2="760" stroke-dasharray="18 12" opacity="0.6" />
+  </g>
+  <g fill="none" stroke="#6a9bcc" stroke-width="5">
+    <path d="M 1320 465 L 1430 465 L 1430 315 L 1344 315" />
+  </g>
+  <polygon points="1320,315 1344,302 1344,328" fill="#6a9bcc" />
+  <g stroke="none">
+    <circle cx="740" cy="165" r="16" fill="#d97757" />
+    <circle cx="740" cy="315" r="16" fill="#d97757" />
+    <circle cx="740" cy="465" r="16" fill="#6a9bcc" />
+    <circle cx="740" cy="615" r="16" fill="#788c5d" />
+  </g>
+  <g fill="currentColor" stroke="none" font-size="44" text-anchor="middle">
+    <text x="1070" y="181">Spec and plan</text>
+    <text x="1070" y="331">Tests first</text>
+    <text x="1070" y="481">Critic review</text>
+    <text x="1070" y="631">Merged PR</text>
+    <text x="1090" y="836">A guard hook limits every action</text>
+  </g>
+  <text x="1500" y="390" transform="rotate(90 1500 390)" fill="#6a9bcc" font-size="44" text-anchor="middle">capped loop</text>
+</svg>
+</figure>
+<h3><a href="projects/agent-harness.html">Claude Code agent harness</a></h3>
+<p>A Claude Code setup I use every working day, at work and at home: about 920 sessions since June 2026. Daily…</p>
+</li>
+<li>
+<figure class="media">
+<img src="media/projects-mimbly/dashboard.webp" srcset="media/projects-mimbly/dashboard-800.webp 800w, media/projects-mimbly/dashboard.webp 1600w" sizes="(min-width: 45rem) 32rem, 100vw" width="1600" height="800" loading="lazy" alt="Re-creation: the dashboard run locally on made-up data. My backend fed it; two teammates built this front end">
+</figure>
+<h3><a href="projects/mimbly.html">Mimbly event backend</a></h3>
+<p>The backend for Mimbly&#x27;s water-recycling dashboard, my first customer project: I built it alone and was the…</p>
+</li>
+</ul>
 </section>
 </main>
 <footer>
 <ul>
+<li><a href="mailto:sjogrenandreas@live.se">Email</a></li>
 <li><a href="https://github.com/Edes0">GitHub</a></li>
+<li><a href="cv.pdf">CV</a></li>
 </ul>
 </footer>
 </body>
